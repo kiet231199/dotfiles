@@ -99,16 +99,3 @@ keymap ("", "<F5>", ":NvimTreeFindFileToggle<CR>", opts)
 
 -- Floaterm
 keymap ("", "<F8>", ":FloatermToggle<CR>", opts)
-
--- EasyAlign
--- Start interactive EasyAlign in visual mode (e.g. vipga)
-keymap("x", "ga", '<Plug>(EasyAlign)', term_opts)
-
--- Start interactive EasyAlign for a motion/text object (e.g. gaip)
-keymap("n", "ga", '<Plug>(EasyAlign)', term_opts)
-
--- NERDCommenter
-keymap("n", "<A-/>", '<plug>NERDCommenterToggle', term_opts)
-keymap("v", "<A-/>", '<plug>NERDCommenterToggle', term_opts)
-keymap("n", "<A-?>", '<plug>NERDCommenterSexy', term_opts)
-keymap("v", "<A-?>", '<plug>NERDCommenterSexy', term_opts)

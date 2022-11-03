@@ -173,8 +173,6 @@ return require("packer").startup(function(use)
 end)
 
 -- ERROR: Pretty fold cannot config with -|
--- WARN: Cannot use lazygit - workaround: checkout branch 0.4.3
--- TODO: Add TS Library to linux
 -- TODO: Replace Tabline with Bufferline
 -- TODO: Config color for indentline
 -- TODO: Config color for telescope

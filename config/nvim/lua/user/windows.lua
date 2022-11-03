@@ -8,10 +8,6 @@ vim.o.equalalways = false
 vim.api.nvim_create_autocmd("TermOpen", { command = "WindowsDisableAutowidth", })
 vim.api.nvim_create_autocmd("TermClose", { command = "WindowsEnableAutowidth", })
 
--- Disable when using with EasyReplace
-vim.api.nvim_create_autocmd("CmdwinEnter", { command = "WindowsDisableAutowidth", })
-vim.api.nvim_create_autocmd("CmdwinLeave", { command = "WindowsEnableAutowidth", })
-
 local status_ok, windows = pcall(require, "windows")
 if not status_ok then
 	print("Error: windows")

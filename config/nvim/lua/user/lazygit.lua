@@ -14,4 +14,5 @@ for k,v in pairs(lazygit) do
 	vim.g[k] = v
 end
 
-vim.api.nvim_set_keymap("", "<leader>gg", ":LazyGit<CR>", { noremap = true, silent = true })
+-- Disable this because of bash shell
+-- vim.api.nvim_set_keymap("", "<leader>gg", ":LazyGit<CR>", { noremap = true, silent = true })

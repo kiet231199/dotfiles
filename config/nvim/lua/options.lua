@@ -54,5 +54,5 @@ vim.cmd [[
 	set modifiable
     autocmd Filetype gitcommit setlocal spell textwidth=72 						     	" Set limitation for git commit
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o		" Disable automatic comment in newline
-	let g:c_syntax_for_h = 1
+	" let g:c_syntax_for_h = 1
 ]]
