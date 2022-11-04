@@ -149,14 +149,6 @@ return require("packer").startup(function(use)
 	use {
 		'voldikss/vim-floaterm',									-- Float terminal
 	}
-	use {
-		'folke/twilight.nvim',									-- Focus on function / paragraph
-		requires = {
-			'folke/zen-mode.nvim',
-			after = 'twilight.nvim',
-		},
-		cmd = 'Twilight',
-	}
 	use 'itchyny/vim-cursorword'								-- Underline word undercursor
 	use 'lukas-reineke/indent-blankline.nvim'					-- Indentline
 	use 'kvngvikram/rightclick-macros'							-- Rightclick menu
@@ -169,6 +161,9 @@ return require("packer").startup(function(use)
 	}
 	use 'cbochs/portal.nvim'
 	use 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
+	use 'Civitasv/cmake-tools.nvim'
+	use 'mfussenegger/nvim-dap'
+	use 'akinsho/git-conflict.nvim'
 
 	-- Icon source
     use 'ryanoasis/vim-devicons'
@@ -182,5 +177,5 @@ end)
 -- TODO: Config color for indentline
 -- TODO: Config color for telescope
 -- TODO: Config color for dressing
--- TODO: Add LSP Line, Portal, nonicons
+-- TODO: Add LSP Line, Portal, nonicons, cmake-tools, git-conflict
 
