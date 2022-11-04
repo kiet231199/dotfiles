@@ -105,9 +105,10 @@ return require("packer").startup(function(use)
     use 'folke/todo-comments.nvim'								-- Todo comment
 
 	-- Easy editing
-	use 'Vonr/align.nvim'
+	use 'Vonr/align.nvim'										-- Quick align
 	use 'fedepujol/move.nvim'                   				-- Quick move
     use 'mg979/vim-visual-multi'						    	-- Multi cursor
+	use 'kqito/vim-easy-replace'								-- Quick replace
 
 	-- Search
     use {
@@ -163,19 +164,23 @@ return require("packer").startup(function(use)
 	use 'tversteeg/registers.nvim'
 
 	use {
-		'akinsho/bufferline.nvim',
 		'Shatur/neovim-session-manager',
 		'sindrets/diffview.nvim',
 	}
+	use 'cbochs/portal.nvim'
+	use 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 
 	-- Icon source
     use 'ryanoasis/vim-devicons'
+	use 'yamatsum/nvim-nonicons'
 	use 'kyazdani42/nvim-web-devicons'
 end)
 
--- ERROR: Pretty fold cannot config with -|
 -- TODO: Replace Tabline with Bufferline
+-- TODO: Config color for lualine and bufferline
+-- Lualine in: tokyonight.nvim/lua/lualine/themes/tokyonight.lua
 -- TODO: Config color for indentline
 -- TODO: Config color for telescope
 -- TODO: Config color for dressing
+-- TODO: Add LSP Line, Portal, nonicons
 

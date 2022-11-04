@@ -8,16 +8,17 @@ local keymap = vim.api.nvim_set_keymap
 -- Map <leader> to ,
 vim.cmd [[let mapleader=',']]
 -- ========================================== Function key ==========================================
--- <F2> for Enable LPS
--- <F3> for Enable Telescope
--- <F4> for Minimap
+-- <F2> for Noice
+-- <F3>
+-- <F4>
 -- <F5> for Explorer
 -- <F6> for Outline
 -- <F7> for Trouble
 -- <F8> for Floaterm
 -- <F9> for Git blamer
 -- <F10> for Git messenger
--- <F11>
+-- <F11> Toggle view for neovim, so user can copy by using mouse
+vim.api.nvim_set_keymap("n", "<F11>", ":lua isView()<CR>", { noremap = true })
 -- <F12> Toggle relative line numbers and regular line numbers.
 keymap('', '<F12>', ':set norelativenumber!<CR>', { noremap = false, silent = true })
 

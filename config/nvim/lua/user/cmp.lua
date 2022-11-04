@@ -48,8 +48,8 @@ cmp.setup{
 	snippet = {
 		expand = function(args)
 			require("luasnip").lsp_expand(args.body)
-			require('snippy').expand_snippet(args.body)
-			vim.fn["UltiSnips#Anon"](args.body)
+			--[[ require('snippy').expand_snippet(args.body)
+			vim.fn["UltiSnips#Anon"](args.body) ]]
 		end,
 	},
 	mapping = {

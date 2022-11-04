@@ -40,17 +40,38 @@ tokyonight.setup({
     -- @param colors ColorScheme
     on_highlights = function(hl, cl)
 		local black = "#000000"
+		-- Common
 		hl.WinSeparator = { fg = cl.magenta, bold = true }
 		hl.LineNr = { fg = "#697094" }
 		hl.CursorLineNr = { fg = "#fefe14" , bold = true }
 		hl.IncSearch = { fg = black, bg = cl.red1 }
 		hl.TabLineFill = { bg = "#13141c" }
+		-- NvimTree
 		hl.NvimTreeWinSeparator = { fg = "#A9B1D6" }
 		hl.NvimTreeIndentMarker = { fg = "#A9B1D6" } 
 		hl.NvimTreeLspDiagnosticsError = { fg = cl.red1 }
 		hl.NvimTreeLspDiagnosticsError = { fg = cl.yellow }
 		hl.NvimTreeLspDiagnosticsError = { fg = cl.blue2 }
 		hl.NvimTreeLspDiagnosticsError = { fg = cl.tear }
+		-- Barbar
+		hl.BufferCurrent = { bg = cl.blue, fg = black, bold = true }
+		hl.BufferCurrentIndex = { bg = cl.blue, fg = black, bold = true }
+		hl.BufferCurrentMod = { bg = cl.blue, fg = black, bold = true }
+		hl.BufferCurrentSign = { bg = cl.blue, fg = cl.fg_gutter, bold = true }
+		-- hl.BufferCurrentTarget = { bg = black, fg = cl.blue, bold = true }
+		
+		hl.BufferVisible = { bg = cl.fg_gutter, fg = cl.magenta, bold = true }
+		hl.BufferVisibleIndex = { bg = cl.fg_gutter, fg = cl.magenta, bold = true }
+		hl.BufferVisibleMod = { bg = cl.fg_gutter, fg = cl.magenta, bold = true }
+		-- hl.BufferVisibleSign = { bg = black, fg = cl.blue, bold = true }
+		-- hl.BufferVisibleTarget = { bg = c.bg_statusline, fg = c.red }
+		-- hl.BufferInactive = { bg = c.bg_statusline, fg = c.dark5 }
+		-- hl.BufferInactiveIndex = { bg = c.bg_statusline, fg = c.dark5 }
+		-- hl.BufferInactiveMod = { bg = c.bg_statusline, fg = util.darken(c.warning, 0.7) }
+		-- hl.BufferInactiveSign = { bg = c.bg_statusline, fg = c.border_highlight }
+		-- hl.BufferInactiveTarget = { bg = c.bg_statusline, fg = c.red }
+		-- hl.BufferTabpages = { bg = c.bg_statusline, fg = c.none }
+		-- hl.BufferTabpageFill = { bg = c.bg_statusline, fg = c.border_highlight }
 	end,
 })
 
@@ -64,12 +85,21 @@ vim.cmd[[
 	highlight PmenuSbar guibg=cNormal
 	highlight PmenuThumb guifg=#A9B1D6
 	highlight cPmenuThumb guifg=#A9B1D6 guibg=None
-	hi default link HlSearchNear IncSearch
-	hi default link HlSearchLens cNormal
-	hi default link HlSearchLensNear MyHlSearch
-	hi default link HlSearchFloat IncSearch
-	hi Floaterm guibg=Normal
-	hi FloatermBorder guifg=#A9B1D6 guibg=Normal
+	
 	highlight GitSignsCurrentLineBlame guifg=Yellow guibg=cNormal
+
+	highlight default link HlSearchNear IncSearch
+	highlight default link HlSearchLens cNormal
+	highlight default link HlSearchLensNear MyHlSearch
+	highlight default link HlSearchFloat IncSearch
+
+	highlight default link BufferCurrentIcon BufferCurrent
+	highlight default link BufferVisibleIcon BufferVisible
+	highlight default link BufferInactiveIcon BufferInactive
+	highlight default link BufferOffset BufferTabpageFill
+
+	highlight Floaterm guibg=Normal
+	highlight FloatermBorder guifg=#A9B1D6 guibg=Normal
+
 	colorscheme tokyonight
 ]]

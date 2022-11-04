@@ -5,6 +5,26 @@ vim.cmd [[
 		let $GIT_EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
 	endif
 ]]
+
+local option = vim.o
+function isView()
+	if option.number == true then
+		option.signcolumn = "no"
+		option.number = false
+		option.relativenumber = false
+		option.mouse = ""
+		vim.cmd("IndentBlanklineToggle")
+		vim.cmd("ScrollViewDisable")
+	else
+		option.signcolumn = "yes"
+		option.number = true
+		option.relativenumber = true
+		option.mouse = "a"
+		vim.cmd("IndentBlanklineToggle")
+		vim.cmd("ScrollViewEnable")
+	end
+end
+
 require("options")		 	-- Store all neovim configuration
 require("keymaps")		 	-- Store all neovim remap
 require("user")          	-- Call all plugins configuration

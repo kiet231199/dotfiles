@@ -24,7 +24,7 @@ windows.setup({
 	},
 	ignore = {
 		buftype = { "quickfix" },
-		filetype = { "NvimTree", "neo-tree", "undotree", "gundo" }
+		filetype = { "NvimTree", "undotree", "gundo", "Outline", "easy-replace" }
 	},
 	animation = {
 		enable = true,
