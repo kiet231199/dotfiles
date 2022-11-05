@@ -56,8 +56,6 @@ require("user.iconpicker")
 
 require("user.floaterm")
 -- require("user.indent_blankline")
--- require("user.twilight")
-require("user.rightclick")
 require("user.pretty-fold")
 require("user.registers")
 require("user.sessions")

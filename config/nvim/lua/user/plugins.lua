@@ -1,10 +1,12 @@
 vim.cmd [[packadd packer.nvim]]
-
 -- Highlight yank
 vim.api.nvim_create_autocmd("TextYankPost", {
 	command = "silent! lua vim.highlight.on_yank({ timeout = 500 })",
 	group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
 })
+
+-- Enter bash when open terminal (only use with linux has bash terminal)
+-- vim.api.nvim_create_autocmd("TermEnter", { command = ":terminal bash"})
 
 -- Packer Autocompile
 vim.api.nvim_create_autocmd("VimEnter", { command = ":PackerCompile", })
@@ -43,10 +45,14 @@ return require("packer").startup(function(use)
 		'nvim-telescope/telescope.nvim',      					-- Telescope
 		'nvim-lua/plenary.nvim',								-- Prevent duplicate function
 		'nvim-telescope/telescope-file-browser.nvim',			-- File browser
-		'nvim-telescope/telescope-fzy-native.nvim',				-- Quick search
+		{
+			'nvim-telescope/telescope-fzf-native.nvim',			-- Quick search
+			run = 'make',
+		},
 		'nvim-telescope/telescope-project.nvim',				-- Project
 		'nvim-telescope/telescope-ui-select.nvim',				-- UI for telescope
 		'keyvchan/telescope-find-pickers.nvim',					-- Builtin/extension picker for telescope
+		'octarect/telescope-menu.nvim',							-- Menu for select prebuild command
 		'AckslD/nvim-neoclip.lua',               				-- Preview clipboard
 	}
 
@@ -58,9 +64,12 @@ return require("packer").startup(function(use)
 		'lukas-reineke/lsp-format.nvim',						-- LSP formatter
 		'adoyle-h/lsp-toggle.nvim',								-- Enable/disable LSP
 		'folke/trouble.nvim',                    				-- Show LSP diagnostics
-		'jose-elias-alvarez/null-ls.nvim',						-- Language server for unknown language
+		{
+			'jose-elias-alvarez/null-ls.nvim',					-- Language server for builtin language
+			'MunifTanjim/prettier.nvim',						-- Prettier for buitin language
+		},
 		'glepnir/lspsaga.nvim',				  					-- LSP UI
-		'simrat39/symbols-outline.nvim',			 			-- LSP UI
+		'simrat39/symbols-outline.nvim',			 			-- LSP UI for Outline
 		'Djancyp/lsp-range-format',
 	}
 
@@ -142,40 +151,39 @@ return require("packer").startup(function(use)
 	-- Picker
 	use {
 			'ziontee113/color-picker.nvim',						-- Color quick search
-			'ziontee113/icon-picker.nvim',							-- Icon quick search
+			'ziontee113/icon-picker.nvim',						-- Icon quick search
 	}
 
 	-- Some stuff
 	use {
-		'voldikss/vim-floaterm',									-- Float terminal
+		'voldikss/vim-floaterm',								-- Float terminal
 	}
 	use 'itchyny/vim-cursorword'								-- Underline word undercursor
 	use 'lukas-reineke/indent-blankline.nvim'					-- Indentline
-	use 'kvngvikram/rightclick-macros'							-- Rightclick menu
 	use 'anuvyklack/pretty-fold.nvim'							-- Fold text
-	use 'tversteeg/registers.nvim'
+	use 'tversteeg/registers.nvim'								-- Registers
 
 	use {
 		'Shatur/neovim-session-manager',
 		'sindrets/diffview.nvim',
 	}
-	use 'cbochs/portal.nvim'
-	use 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
-	use 'Civitasv/cmake-tools.nvim'
-	use 'mfussenegger/nvim-dap'
-	use 'akinsho/git-conflict.nvim'
+	use 'cbochs/portal.nvim'									-- 
+	use 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'			-- Show LSP diagnostics better
+	use 'Civitasv/cmake-tools.nvim'								-- Cmake tools
+	use 'mfussenegger/nvim-dap'									-- Debug Adapter
+	use 'akinsho/git-conflict.nvim'								-- Solve conflict faster
+	use 'kevinhwang91/nvim-bqf'									-- Make quickfix window better
 
 	-- Icon source
     use 'ryanoasis/vim-devicons'
-	use 'yamatsum/nvim-nonicons'
 	use 'kyazdani42/nvim-web-devicons'
 end)
 
--- TODO: Replace Tabline with Bufferline
--- TODO: Config color for lualine and bufferline
+-- ERROR: Lua takes to much time to load (noice)
+-- ERROR: Clangd cannot format with 4 space tab_width (lspconfig)
+-- TODO: Add LSP Line, Portal, cmake-tools, git-conflict, bqf, prettier with null-ls
 -- Lualine in: tokyonight.nvim/lua/lualine/themes/tokyonight.lua
 -- TODO: Config color for indentline
 -- TODO: Config color for telescope
 -- TODO: Config color for dressing
--- TODO: Add LSP Line, Portal, nonicons, cmake-tools, git-conflict
-
+-- TODO: Replace Tabline with Barbar (barbar need update seperator icon color)

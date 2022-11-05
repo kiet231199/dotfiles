@@ -85,6 +85,25 @@ require("neodev").setup({
 	-- leave empty to use the default settings
 })
 
+local tabwidth = vim.o.shiftwidth
+
+-- Lsp format
+require("lsp-format").setup {
+	bash = { tab_width = tabwidth },
+	c = { tab_width = tabwidth },
+	cmake = { tab_width = tabwidth },
+	lua = { tab_width = tabwidth },
+	make = { tab_width = tabwidth },
+	python = { tab_width = tabwidth },
+	vim = { tab_width = tabwidth },
+}
+
+local on_attach = function(client)
+    require("lsp-format").on_attach(client)
+
+    -- ... custom code ...
+end
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
@@ -124,7 +143,8 @@ require'lspconfig'.clangd.setup {
     	usePlaceholders = true,
     	completeUnimported = true,
     	semanticHighlighting = true,
-    }
+    },
+	on_attach = on_attach,
 }
 
 -- Lua
@@ -152,7 +172,7 @@ require'lspconfig'.sumneko_lua.setup {
 }
 
 -- Vim
-require'lspconfig'.vimls.setup{
+require 'lspconfig'.vimls.setup {
 	init_options = {
 		diagnostic = {
 			enable = true
@@ -174,15 +194,6 @@ require'lspconfig'.vimls.setup{
 	}
 }
 
--- Lsp format
-require("lsp-format").setup {}
-
-local on_attach = function(client)
-    require("lsp-format").on_attach(client)
-
-    -- ... custom code ...
-end
-require("lspconfig").gopls.setup { on_attach = on_attach }
 
 -- LSP toggle
 require("lsp-toggle").setup({ telescope = true })
