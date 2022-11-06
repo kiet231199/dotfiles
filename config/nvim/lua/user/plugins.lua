@@ -167,21 +167,28 @@ return require("packer").startup(function(use)
 		'Shatur/neovim-session-manager',
 		'sindrets/diffview.nvim',
 	}
-	use 'cbochs/portal.nvim'									-- 
-	use 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'			-- Show LSP diagnostics better
-	use 'Civitasv/cmake-tools.nvim'								-- Cmake tools
-	use 'mfussenegger/nvim-dap'									-- Debug Adapter
-	use 'akinsho/git-conflict.nvim'								-- Solve conflict faster
-	use 'kevinhwang91/nvim-bqf'									-- Make quickfix window better
+	use 'gorbit99/codewindow.nvim'								-- Minimap window
 
+	use 'akinsho/git-conflict.nvim'								-- Solve conflict faster
+	use
+	{
+		'kevinhwang91/nvim-bqf',								-- Make quickfix window better
+		ft = 'qt',
+		requires = {
+			'junegunn/fzf', run = function()
+				vim.fn['fzf#install']()
+			end
+		}
+	}
 	-- Icon source
     use 'ryanoasis/vim-devicons'
 	use 'kyazdani42/nvim-web-devicons'
 end)
 
--- ERROR: Lua takes to much time to load (noice)
 -- ERROR: Clangd cannot format with 4 space tab_width (lspconfig)
--- TODO: Add LSP Line, Portal, cmake-tools, git-conflict, bqf, prettier with null-ls
+-- ERROR: Ultisnips not silent
+-- ERROR: Codewindow error after quitting
+-- TODO: Add prettier with null-ls
 -- Lualine in: tokyonight.nvim/lua/lualine/themes/tokyonight.lua
 -- TODO: Config color for indentline
 -- TODO: Config color for telescope
