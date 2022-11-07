@@ -5,9 +5,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
 })
 
--- Enter bash when open terminal (only use with linux has bash terminal)
--- vim.api.nvim_create_autocmd("TermEnter", { command = ":terminal bash"})
-
 -- Packer Autocompile
 vim.api.nvim_create_autocmd("VimEnter", { command = ":PackerCompile", })
 
@@ -187,7 +184,6 @@ end)
 
 -- ERROR: Clangd cannot format with 4 space tab_width (lspconfig)
 -- ERROR: Ultisnips not silent
--- ERROR: Codewindow error after quitting
 -- TODO: Add prettier with null-ls
 -- Lualine in: tokyonight.nvim/lua/lualine/themes/tokyonight.lua
 -- TODO: Config color for indentline
