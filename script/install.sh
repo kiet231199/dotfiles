@@ -1,59 +1,92 @@
 # !/bin/bash
-# 1. Create ProgressBar function
-# 1.1 Input is currentState($1) and totalState($2)
-function ProgressBar {
-# Process data
-	let _factor=10
-    let _progress=(${1}*100/${2}*100)/100
-    let _done=(${_progress}*${_factor})/10
-    let _left=10*${_factor}-$_done
-# Build progressbar string lengths
-    _fill=$(printf "%${_done}s")
-    _empty=$(printf "%${_left}s")
-
-# 1.2 Build progressbar strings and print the ProgressBar line
-# 1.2.1 Output example:                           
-# 1.2.1.1 Progress : [░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 100%
-printf "\rProgress : [${_fill// /▒}${_empty// /-}] ${_progress}%%\n"
-}
-
-# Variables
-_start=1
-
-# This accounts as the "totalState" variable for the ProgressBar function
-_end=100
-
-# Proof of concept
-# for number in $(seq ${_start} ${_end})
-# do
-#     sleep 0.1
-#     ProgressBar ${number} ${_end}
-# done
-
-# ProgressBar ${_start} ${_end}
-
 NVIM_DIR=`pwd`
+percent=0
 
 # Go to tools directory
 CONFIG=$NVIM_DIR/config
 TOOLS=$NVIM_DIR/tools
-cd $TOOLS
 
-# Uncompress files
-declare -a softwares=("nvim" "clang" "minimap" "ripgrep" "lazygit" "fd" "tmux" "ctags" "python" "node")
+echo "------------------ Install softwares ------------------"
+cd $TOOLS
+declare -a softwares=("nvim" "clang" "minimap" "ripgrep" "lazygit" "fd" "tmux" "ctags" "python" "node" "fzf")
 for i in "${softwares[@]}"
 do
-	if [ -d $i* ]
+	percent=$(($percent+5))
+	if [ -f $i* ]
 	then
+		if [ $i != "lazygit" ] || [ $i != "fzf" ]
+		then
+			if [ -f $i*.tar ]
+			then
+				tar xf $i*.tar && rm -rf $i*.tar
+			fi
+			if [ -f $i*.tar.bz2 ]
+			then
+				tar xf $i*.tar.bz2 && rm -rf $i*.tar.bz2
+			fi
+		fi
+
 		SW_DIR=`ls | grep $i`
 		SW_BIN=$SW_DIR/bin
 
-		echo "Export $i to path: [OK]"
+		echo "[$percent%] Install $i: [OK]" && $i -V
 		export PATH="$TOOLS/$SW_DIR:$PATH"
 		export PATH="$TOOLS/$SW_BIN:$PATH"
+
+		if [ $i = "node" ]
+		then
+			export PATH="$TOOLS/$SW_DIR/lib/node_modules/neovim/bin:$PATH"	
+		fi
+		if [ $i = "python" ]
+		then
+			mv $TOOLS/pynvim_package/* $home/.local
+		fi
 	else
-		echo "Export $i to path: [FAILED] ($i does not exist, refer README to install it)"
+		if [ -d $i* ]
+		then
+			echo "[$percent%] ${i^} installed: [OK]"
+		else
+			echo "[$percent%] Install $i: [FAILED] ($i does not exist, refer README to download)"
+		fi
 	fi
 done
 
-# ProgressBar 5 ${_end}
+
+echo "------------------ Install Neovim Plugins ------------------"
+cd $CONFIG
+cd pack
+percent=$(($percent+5))
+if [ -f "*.tar.bz2"]
+then
+	tar xf *.tar.bz2
+	echo "[$percent%] Install plugins: [OK]"
+	rm -rf *.tar.bz2
+else
+	if [ -f "packer_compiled.lua"]
+	then
+		echo "[$percent%] Plugins installed: [OK]"
+	else
+		echo "[$percent%] Install plugins: [FAILED] (refer README to download)"
+	fi
+fi
+
+echo "------------------ Install Language Server Protocol ------------------"
+cd $CONFIG/mason/bin
+percent=$(($percent+5))
+
+if [ -f "*.tar.bz2"]
+then
+	tar xf *.tar.bz2
+	echo "[$percent%] Install LSP execution files: [OK]"
+	rm -rf *.tar.bz2
+else
+	if [ -f "clangd" ]
+	then
+		echo "[$percent%] LSP execution files installed: [OK]"
+	else
+		echo "[$percent%] Install LSP execution files: [FAILED] (refer README to download)"
+	fi
+fi
+
+cd $CONFIG/mason/package
+
