@@ -26,6 +26,7 @@
 - [x] Ripgrep 13.0.0: [Binary prebuild](https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz)
 - [x] Lazygit 0.35: [Binary prebuild](https://github.com/jesseduffield/lazygit/releases/download/v0.35/lazygit_0.35_Linux_x86_64.tar.gz)
 - [x] Finder 8.4.0: [Binary prebuild](https://github.com/sharkdp/fd/releases/download/v8.4.0/fd-v8.4.0-x86_64-unknown-linux-gnu.tar.gz)
+- [x] Fzf 0.34.0: [Binary prebuild](https://github.com/junegunn/fzf/releases/download/0.34.0/fzf-0.34.0-linux_arm64.tar.gz)
 - [x] Tmux-3.3a
 - [x] Universal Ctags 5.8
 - [x] Python 3.10.7 (with pip, pynvim and nvr)
