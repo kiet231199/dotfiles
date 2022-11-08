@@ -102,8 +102,16 @@ noice.setup({
 			format = "lsp_progress",
 			--- @type NoiceFormat|string
 			format_done = "lsp_progress_done",
-			throttle = 2000, -- frequency to update lsp progress message
+			throttle = 800, -- frequency to update lsp progress message
 			view = "mini",
+		},
+		override = {
+			-- override the default lsp markdown formatter with Noice
+			["vim.lsp.util.convert_input_to_markdown_lines"] = false,
+			-- override the lsp markdown formatter with Noice
+			["vim.lsp.util.stylize_markdown"] = false,
+			-- override cmp documentation with Noice (needs the other options to work)
+			["cmp.entry.get_documentation"] = false,
 		},
 		hover = {
 			enabled = true,
@@ -175,7 +183,7 @@ noice.setup({
 		inc_rename = false, -- enables an input dialog for inc-rename.nvim
 		lsp_doc_border = false, -- add a border to hover docs and signature help
 	},
-	throttle = 1000 / 100, -- how frequently does Noice need to checkfor ui updates? This has no effect when in blocking mode.
+	throttle = 1000 / 500, -- how frequently does Noice need to checkfor ui updates? This has no effect when in blocking mode.
 	--@type NoiceConfigViews
 	views = {
 		mini = {

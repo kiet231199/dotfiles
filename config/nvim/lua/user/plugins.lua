@@ -184,6 +184,7 @@ end)
 
 -- ERROR: Clangd cannot format with 4 space tab_width (lspconfig)
 -- ERROR: Ultisnips not silent
+-- TODO: Config git-conflict, bqf, diffview keymap, gitsigns keymap
 -- TODO: Add prettier with null-ls
 -- Lualine in: tokyonight.nvim/lua/lualine/themes/tokyonight.lua
 -- TODO: Config color for indentline
