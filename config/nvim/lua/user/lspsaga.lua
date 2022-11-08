@@ -71,7 +71,7 @@ saga.init_lsp_saga
         enable = true,
         enable_in_insert = true,
         cache_code_action = true,
-        sign = true,
+        sign = false,
         update_time = 1000,
         sign_priority = 20,
         virtual_text = true,

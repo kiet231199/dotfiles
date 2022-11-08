@@ -27,7 +27,7 @@ return require("packer").startup(function(use)
 	use {
 		'nvim-lualine/lualine.nvim',							-- Statusline
 		'kdheepak/tabline.nvim',								-- Tabline
-		'romgrk/barbar.nvim',
+		-- 'romgrk/barbar.nvim',
 	}
 
 	-- Git

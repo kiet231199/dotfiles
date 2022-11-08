@@ -1,6 +1,7 @@
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
+
 -- vim.keymap.set('n', '<space>df', vim.diagnostic.open_float, opts)
 -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 -- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
@@ -30,6 +31,8 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
 	--vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 	vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+
+    require("lsp-format").on_attach(client)
 end
 
 -- icon ⚠
@@ -81,11 +84,13 @@ local lsp_flags = {
 }
 
 -- Neodev
-require("neodev").setup({
-	-- leave empty to use the default settings
-})
+-- require("neodev").setup({
+-- 	-- leave empty to use the default settings
+-- })
 
-local tabwidth = vim.o.shiftwidth
+local tabwidth = function()
+    return vim.opt.shiftwidth:get()
+end
 
 -- Lsp format
 require("lsp-format").setup {
@@ -98,11 +103,10 @@ require("lsp-format").setup {
 	vim = { tab_width = tabwidth },
 }
 
-local on_attach = function(client)
-    require("lsp-format").on_attach(client)
 
-    -- ... custom code ...
-end
+-- local on_attach = function(client)
+--     -- ... custom code ...
+-- end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -129,12 +133,12 @@ clangd_capabilities.textDocument.semanHighlighting = true
 clangd_capabilities.offsetEncoding = "utf-8"
 require'lspconfig'.clangd.setup {
 	capabilities = clangd_capabilities,
+	filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
 	cmd = {
     	"clangd",
     	"--background-index",
     	"--pch-storage=memory",
     	"--clang-tidy",
-    	"--suggest-missing-includes",
     	"--cross-file-rename",
     	"--completion-style=detailed",
     },
@@ -144,7 +148,6 @@ require'lspconfig'.clangd.setup {
     	completeUnimported = true,
     	semanticHighlighting = true,
     },
-	on_attach = on_attach,
 }
 
 -- Lua
@@ -194,6 +197,8 @@ require 'lspconfig'.vimls.setup {
 	}
 }
 
-
 -- LSP toggle
 require("lsp-toggle").setup({ telescope = true })
+
+-- LSP format range keymap
+vim.keymap.set("x", "<space>f", ":lua require'lsp-range-format'.format()<CR>", { noremap = true, silent = true })
