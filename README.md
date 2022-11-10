@@ -32,33 +32,39 @@
 - [x] Python 3.10.7 (with pip, pynvim and nvr)
 - [x] Nodejs 16.17.1 (with npm, neovim provider)
 
-# How to setup
+# Installation
+- Download above applications which has "Binary prebuild" tag and put it into tools directory.
 - Create a neovim directory like below.
-- TODO: Create a bash script to automatically setup.
 
 ```shell
 /path/to/your/
 └── neovim ($neovim)
-    ├── config ($config)
-    │   ├── mason
-    │   │   ├── bin
+    ├── install.sh
+    ├── config/ ($config)
+    │   ├── mason/
+    │   │   ├── bin/
     │   │   │   └── pack.tar.bz2             
-    │   │   └── packages 
+    │   │   └── packages/
     │   │       ├── pack_1.tar.bz2 
-    │   │       └── pack_2.tar.bz2   
-    │   └── nvim
-    │       ├── init.lua
-    │       ├── lua
-    │       └── pack/packer/start/plugins.tar.bz2
+    │   │       ├── pack_2.tar.bz2   
+    │   │       └── pack_3.tar.bz2  
+    │   ├── nvim/
+    │   │   ├── init.lua
+    │   │   └── lua/user/*.lua
+    │   └── pack/pack.tar.bz2
     └── tools ($tool)
         └── <package>.tar.bz2
 ```
+- Run install.sh and wait.
+```bash
+cd /path/to/your/neovim
+./install.sh
+```
 
-- Download above applications which has "Binary prebuild" tag and put it into tools directory.
+- If you need to install manually, follow these below instruction.
 - Extract all below compressed files.
 
 ```bash
-# You can add 3 lines below to your ~/.bashrc
 # Assume that your neovim path like this: /home/kietpham/neovim/
 neovim=/home/kietpham/neovim/
 config=$neovim/config
@@ -76,39 +82,34 @@ cd $config/mason/packages
 tar -xf pack_1.tar.bz2
 tar -xf pack_2.tar.bz2
 
-# After that, you can remove compress files.
+# After that, you can remove compressed files.
 ```
 
 - Export binary file to **$PATH**, add these lines to your ~/.bashrc.
  
 ```bash
-# You can add these lines below to your ~/.bashrc
+# Remember to replace * with for version
 export PATH=$TOOLS/nvim-*/bin:$PATH
 export PATH=$TOOLS/ripgrep-*:$PATH
 export PATH=$TOOLS/node-*/bin:$PATH
 export PATH=$TOOLS/node-*/lib/node_modules/neovim/bin:$PATH
 export PATH=$TOOLS/clang+llvm-*/bin:$PATH
 export PATH=$TOOLS/fd-*/bin:$PATH
-export PATH=$TOOLS/code-minimap-*:$PATH
 export PATH=$TOOLS/python-*/bin:$PATH
 export PATH=$TOOLS:$PATH
 export PATH=$TOOLS/../config/mason/bin:$PATH
 ```
 
-- At home, do some stuffs.
+- At home direcory, do some stuffs.
 
 ```bash
 # Assume that your neovim path like this: /home/kietpham/neovim/
-
 # Link your config file to home
 cd $home
 ln -s /home/kietpham/neovim/config .config
 
 # Add pynvim and nvr provider to local lib
 mv /home/kietpham/neovim/tools/pynvim_package/* $home/.local
-
-# Add missing symlink (optional)
-ln -s $home/.config/nvim/pack/packer/start/middleclass/lua/middleclass.lua .
 ```
 
 - Modify path in some lua config file.
