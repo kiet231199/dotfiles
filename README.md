@@ -20,7 +20,7 @@
 - Clipboard: [nvim-neoclip](https://github.com/AckslD/nvim-neoclip.lua), [register.nvim](https://github.com/tversteeg/registers.nvim)
 - And many other features ...
 
-# Applications
+# Requirements
 - [x] Neovim 0.9.0: [Binary prebuild](https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz)
 - [x] Clangd+llvm 14.0.0: [Binary prebuild](https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.0/clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz)
 - [x] Ripgrep 13.0.0: [Binary prebuild](https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz)
