@@ -64,3 +64,5 @@ require("user.align")
 require("user.diffview")
 require("user.codewindow")							-- Temporary disable for fix bug
 require("user.git-conflict")
+require("bqf").setup()
+require("user.prettier")

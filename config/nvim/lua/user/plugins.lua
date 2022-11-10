@@ -167,15 +167,14 @@ return require("packer").startup(function(use)
 	use 'gorbit99/codewindow.nvim'								-- Minimap window
 
 	use 'akinsho/git-conflict.nvim'								-- Solve conflict faster
-	use
-	{
+	use {
 		'kevinhwang91/nvim-bqf',								-- Make quickfix window better
-		ft = 'qt',
-		requires = {
+		ft = 'qf',
+		{
 			'junegunn/fzf', run = function()
 				vim.fn['fzf#install']()
 			end
-		}
+	   	}
 	}
 	-- Icon source
     use 'ryanoasis/vim-devicons'
@@ -184,8 +183,7 @@ end)
 
 -- ERROR: Clangd cannot format with 4 space tab_width (lspconfig)
 -- ERROR: Ultisnips not silent
--- TODO: Config git-conflict, bqf, diffview keymap, gitsigns keymap
--- TODO: Add prettier with null-ls
+-- TODO: Config color for lualine
 -- Lualine in: tokyonight.nvim/lua/lualine/themes/tokyonight.lua
 -- TODO: Config color for indentline
 -- TODO: Config color for telescope
