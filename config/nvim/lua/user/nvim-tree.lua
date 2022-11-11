@@ -20,7 +20,18 @@ nvim_tree.setup({
 	sort_by = "name",
 	remove_keymaps = true, -- boolean (disable totally or not) or list of key (lhs)
 	view = {
-		adaptive_size = false,
+		float = { 
+			enable = true,
+			open_win_config = {
+				relative = "cursor",
+				border = "rounded",
+				width = 50,
+				height = 60,
+				row = 1,
+				col = 1,
+			}
+		},
+		adaptive_size = true,
 		centralize_selection = false,
 		width = 35,
 		-- height = 30,
