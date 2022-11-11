@@ -98,6 +98,19 @@ export PATH=$TOOLS/fd-*/bin:$PATH
 export PATH=$TOOLS/python-*/bin:$PATH
 export PATH=$TOOLS:$PATH
 export PATH=$TOOLS/../config/mason/bin:$PATH
+
+# Add neovim --remote
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+    alias nvim=nvr -cc split --remote-wait +'set bufhidden=wipe'
+fi
+
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+    export VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+    export EDITOR="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+else
+    export VISUAL="nvim"
+    export EDITOR="nvim"
+fi
 ```
 
 - At home direcory, do some stuffs.
@@ -121,11 +134,20 @@ let g:python3_host_prog = '/home/kietpham/neovim/tools/python-3.10.7/bin/python3
 let g:node_host_prog = '/home/kietpham/neovim/tools/node-v16.17.1/lib/node_modules/neovim/bin/cli.js'
 
 -- File $home.config/nvim/lua/user/packer.lua
-g.nvim_profile_path = [[/home/kietpham/neovim/config/nvim]]
+g.nvim_profile_path = "/home/kietpham/neovim/config/nvim"
 
 -- File $home.config/nvim/lua/user/mason.lua
 install_root_dir = "/home/kietpham/neovim/config/mason"
 
 -- File $home/.config/mason/packages/lua-language-server
 exec "/home/kietpham/neovim/config/mason/packages/..."
+```
+- After installation, run nvim will have some errors.
+```lua
+-- Open a blank workspace
+nvim
+-- Type below commands
+:PackerLoad noice.nvim
+:UpdateRemotePlugins
+:PackerCompile
 ```
