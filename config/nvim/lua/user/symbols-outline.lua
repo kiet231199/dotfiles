@@ -42,14 +42,14 @@ symbolsoutline.setup({
 		Module = {icon = " ", hl = "TSNamespace"},
 		Namespace = {icon = "", hl = "TSNamespace"},
 		Package = {icon = " ", hl = "TSNamespace"},
-		Class = {icon = " ", hl = "TSType"},
+		Class = {icon = " ", hl = "TSType"},
 		Method = {icon = " ", hl = "TSMethod"},
 		Property = {icon = "", hl = "TSMethod"},
 		Field = {icon = " ", hl = "TSField"},
 		Constructor = {icon = " ", hl = "TSConstructor"},
 		Enum = {icon = " ", hl = "TSType"},
-		Interface = {icon = " ", hl = "TSType"},
-		Function = {icon = "ƒ", hl = "TSFunction"},
+		Interface = {icon = " ", hl = "TSType"},
+		Function = {icon = "", hl = "TSFunction"},
 		Variable = {icon = "", hl = "TSConstant"},
 		Constant = {icon = " ", hl = "TSConstant"},
 		String = {icon = " ", hl = "TSString"},
@@ -63,7 +63,7 @@ symbolsoutline.setup({
 		Struct = {icon = " ", hl = "TSType"},
 		Event = {icon = "", hl = "TSType"},
 		Operator = {icon = " ", hl = "TSOperator"},
-		TypeParameter = {icon = "𝙏", hl = "TSParameter"},
+		TypeParameter = {icon = "", hl = "TSParameter"},
 	}
 })
 

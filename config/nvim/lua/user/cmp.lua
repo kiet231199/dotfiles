@@ -47,9 +47,7 @@ local kind_icons = {
 cmp.setup{
 	snippet = {
 		expand = function(args)
-			-- require("luasnip").lsp_expand(args.body)
-			-- require('snippy').expand_snippet(args.body)
-			vim.fn["UltiSnips#Anon"](args.body)
+			require("luasnip").lsp_expand(args.body)
 		end,
 	},
 	mapping = {
@@ -98,14 +96,13 @@ cmp.setup{
 		fields = { "abbr" ,"kind"},
 		format = function(entry, vim_item)
 			-- Kind icons
-			-- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 			vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-			-- vim_item.menu = ({
-			--	 nvim_lsp = "[LSP]",
-			--	 luasnip = "[Snippet]",
-			--	 buffer = "[Buffer]",
-			--	 path = "[Path]",
-			-- })[entry.source.name]
+			vim_item.menu = ({
+				nvim_lsp = "[LSP]",
+				luasnip = "[Snippet]",
+				buffer = "[Buffer]",
+				path = "[Path]",
+			})[entry.source.name]
 			return vim_item
 		end,
 	},
@@ -114,7 +111,6 @@ cmp.setup{
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
-		-- { name = "ultisnips" },
 		{ name = "snippy" }
 	},
 	confirm_opts = {

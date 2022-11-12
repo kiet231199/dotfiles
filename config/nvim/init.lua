@@ -7,7 +7,7 @@ vim.cmd [[
 ]]
 
 local option = vim.o
-function isView()
+function IsView()
 	if option.number == true then
 		option.signcolumn = "no"
 		option.number = false

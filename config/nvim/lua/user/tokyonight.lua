@@ -21,7 +21,7 @@ tokyonight.setup({
         sidebars = "night", -- style for sidebars, see below
         floats = "night", -- style for floating windows
     },
-    sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
+    sidebars = { "qf", "help", "packer" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
     hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
     dim_inactive = false, -- dims inactive windows
     lualine_bold = true, -- When `true`, section headers in the lualine theme will be bold
@@ -48,7 +48,7 @@ tokyonight.setup({
 		hl.TabLineFill = { bg = "#13141c" }
 		-- NvimTree
 		hl.NvimTreeWinSeparator = { fg = "#A9B1D6" }
-		hl.NvimTreeIndentMarker = { fg = "#A9B1D6" } 
+		hl.NvimTreeIndentMarker = { fg = "#A9B1D6" }
 		hl.NvimTreeLspDiagnosticsError = { fg = cl.red1 }
 		hl.NvimTreeLspDiagnosticsError = { fg = cl.yellow }
 		hl.NvimTreeLspDiagnosticsError = { fg = cl.blue2 }

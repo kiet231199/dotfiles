@@ -18,7 +18,7 @@ vim.cmd [[let mapleader=',']]
 -- <F9> for Git blamer
 -- <F10> for Git messenger
 -- <F11> Toggle view for neovim, so user can copy by using mouse
-vim.api.nvim_set_keymap("n", "<F11>", ":lua isView()<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<F11>", ":lua IsView()<CR>", { noremap = true })
 -- <F12> Toggle relative line numbers and regular line numbers.
 keymap('', '<F12>', ':set norelativenumber!<CR>', { noremap = false, silent = true })
 

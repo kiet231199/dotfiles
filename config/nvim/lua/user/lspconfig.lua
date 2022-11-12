@@ -30,7 +30,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
 	vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
 	--vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-	vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+	-- vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 
     require("lsp-format").on_attach(client)
 end
@@ -164,7 +164,7 @@ require'lspconfig'.sumneko_lua.setup {
 			},
 			workspace = {
 				-- Make the server aware of Neovim runtime files
-				library = vim.api.nvim_get_runtime_file("", true),
+				-- library = vim.api.nvim_get_runtime_file("", true),
 			},
 			-- Do not send telemetry data containing a randomized but unique identifier
 			telemetry = {

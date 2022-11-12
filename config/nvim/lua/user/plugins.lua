@@ -27,14 +27,15 @@ return require("packer").startup(function(use)
 	use {
 		'nvim-lualine/lualine.nvim',							-- Statusline
 		'kdheepak/tabline.nvim',								-- Tabline
-		-- 'romgrk/barbar.nvim',
 	}
 
 	-- Git
 	use {
 		'lewis6991/gitsigns.nvim',					    		-- Git icon
 		'rhysd/git-messenger.vim', 	            				-- Git messenger
-		'kdheepak/lazygit.nvim',   	 						-- Lazygit
+		'kdheepak/lazygit.nvim',   		 						-- Lazygit
+		'sindrets/diffview.nvim',								-- Git diff
+		'akinsho/git-conflict.nvim',							-- Solve conflict faster
 	}
 
 	-- Fuzzy finder
@@ -49,7 +50,7 @@ return require("packer").startup(function(use)
 		'nvim-telescope/telescope-project.nvim',				-- Project
 		'nvim-telescope/telescope-ui-select.nvim',				-- UI for telescope
 		'keyvchan/telescope-find-pickers.nvim',					-- Builtin/extension picker for telescope
-		'octarect/telescope-menu.nvim',							-- Menu for select prebuild command
+		'LinArcX/telescope-command-palette.nvim',				-- Menu command
 		'AckslD/nvim-neoclip.lua',               				-- Preview clipboard
 	}
 
@@ -87,7 +88,6 @@ return require("packer").startup(function(use)
 	-- Snippet
 	use {
 		'L3MON4D3/LuaSnip',
-		'SirVer/ultisnips',
 		'dcampos/nvim-snippy',
 	}
 
@@ -97,7 +97,7 @@ return require("packer").startup(function(use)
 		'p00f/nvim-ts-rainbow',									-- Bracket color
 	}
 
-	-- Bracket -- Waiting for treesitter
+	-- Bracket
 	use {
 		'windwp/nvim-autopairs',               					-- Auto pair
 		'kylechui/nvim-surround',           					-- Smart pair
@@ -107,15 +107,19 @@ return require("packer").startup(function(use)
 	use 'rcarriga/nvim-notify'            		      			-- Notice popup
 
 	-- Commenter
-	use 'numToStr/Comment.nvim'									-- Quick comment
-    use 'folke/todo-comments.nvim'								-- Todo comment
+	use {
+		'numToStr/Comment.nvim',								-- Quick comment
+		'folke/todo-comments.nvim',								-- Todo comment
+	}
 
 	-- Easy editing
-	use 'Vonr/align.nvim'										-- Quick align
-	use 'fedepujol/move.nvim'                   				-- Quick move
-    use 'mg979/vim-visual-multi'						    	-- Multi cursor
-	use 'kqito/vim-easy-replace'								-- Quick replace
-
+	use {
+		'Vonr/align.nvim',										-- Quick align
+		'fedepujol/move.nvim',                   				-- Quick move
+		'mg979/vim-visual-multi',						    	-- Multi cursor
+		'kqito/vim-easy-replace',								-- Quick replace
+		'nguyenvukhang/nvim-toggler',							-- Toggle word (true/false)
+	}
 	-- Search
     use {
 		'VonHeikemen/searchbox.nvim', 	         				-- Search box
@@ -124,16 +128,29 @@ return require("packer").startup(function(use)
 	}
 
 	-- Scroll
-    use 'karb94/neoscroll.nvim'             					-- Smooth scrolling
-	use 'dstein64/nvim-scrollview'								-- Scrollbar
-	use 'gen740/SmoothCursor.nvim'								-- Cursor pointer
+    use {
+		'karb94/neoscroll.nvim',             					-- Smooth scrolling
+		'dstein64/nvim-scrollview',								-- Scrollbar
+		'gen740/SmoothCursor.nvim',								-- Cursor pointer
+	}
 
 	-- Better UI
-	use 'stevearc/dressing.nvim'								-- Make popup better
 	use {
-		'folke/noice.nvim', 									-- Make popup better 
-		keys = { "", "<F2>" },
-		config = 'require("user.noice")',
+		'stevearc/dressing.nvim',								-- Make popup better
+		{
+			'folke/noice.nvim', 								-- Show message popup, LSP progress, popup commandline
+			keys = { "", "<F2>" },
+			config = 'require("user.noice")',
+		},
+		{
+			'kevinhwang91/nvim-bqf',							-- Make quickfix window better
+			ft = 'qf',
+			{
+				'junegunn/fzf', run = function()
+					vim.fn['fzf#install']()
+				end
+			}
+		}
 	}
 
 	-- Smooth window swapping
@@ -147,45 +164,47 @@ return require("packer").startup(function(use)
 
 	-- Picker
 	use {
-			'ziontee113/color-picker.nvim',						-- Color quick search
-			'ziontee113/icon-picker.nvim',						-- Icon quick search
+		'ziontee113/color-picker.nvim',							-- Color quick search
+		'ziontee113/icon-picker.nvim',							-- Icon quick search
 	}
 
-	-- Some stuff
+	-- Float terminal
 	use {
 		'voldikss/vim-floaterm',								-- Float terminal
 	}
-	use 'itchyny/vim-cursorword'								-- Underline word undercursor
-	use 'lukas-reineke/indent-blankline.nvim'					-- Indentline
-	use 'anuvyklack/pretty-fold.nvim'							-- Fold text
-	use 'tversteeg/registers.nvim'								-- Registers
 
+	-- Colorful
 	use {
-		'Shatur/neovim-session-manager',
-		'sindrets/diffview.nvim',
+		'itchyny/vim-cursorword',								-- Underline word undercursor
+		'lukas-reineke/indent-blankline.nvim',					-- Indentline
+		'anuvyklack/pretty-fold.nvim',							-- Fold text
 	}
+
+	-- Register, session 
+	use 'tversteeg/registers.nvim'								-- Registers
+	use 'Shatur/neovim-session-manager'							-- Session
+
+	-- Minmap
 	use 'gorbit99/codewindow.nvim'								-- Minimap window
 
-	use 'akinsho/git-conflict.nvim'								-- Solve conflict faster
-	use {
-		'kevinhwang91/nvim-bqf',								-- Make quickfix window better
-		ft = 'qf',
-		{
-			'junegunn/fzf', run = function()
-				vim.fn['fzf#install']()
-			end
-	   	}
-	}
-	-- Icon source
+	-- In testing
+	use 'tanvirtin/vgit.nvim'
+	use 'nvim-zh/colorful-winsep.nvim'
+
+	-- Icon source (need to be placed at the end)
     use 'ryanoasis/vim-devicons'
 	use 'kyazdani42/nvim-web-devicons'
 end)
 
 -- ERROR: Clangd cannot format with 4 space tab_width (lspconfig)
 -- ERROR: Ultisnips not silent
+-- TODO: Add function in telescope command palette
 -- TODO: Config color for lualine
 -- Lualine in: tokyonight.nvim/lua/lualine/themes/tokyonight.lua
 -- TODO: Config color for indentline
 -- TODO: Config color for telescope
 -- TODO: Config color for dressing
--- TODO: Replace Tabline with Barbar (barbar need update seperator icon color)
+
+-- INFO: Future plugins (consider later)
+-- Barbar
+-- Nvim Scrollbar 
