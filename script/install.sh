@@ -130,7 +130,7 @@ then
 	percent=$(($percent+5))
 	echo -e "${CYAN}Checkout nvim-treesitter version v0.8.0:${NC}"
 	cd $CONFIG/pack/packer/start/nvim-treesitter && git checkout v0.8.0
-	echo -e "${CYAN}Checkout nvim-notify version v3.7.3:${NC}"
+	echo -e "${CYAN}Checkout nvim-notify version v3.8.0:${NC}"
 	cd $CONFIG/pack/packer/start/nvim-notify && git checkout v3.7.3
 	echo -e "${GREEN}[$percent%] Checkout plugins version: [OK]${NC}"
 fi
