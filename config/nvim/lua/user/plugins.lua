@@ -178,6 +178,7 @@ return require("packer").startup(function(use)
 		'itchyny/vim-cursorword',								-- Underline word undercursor
 		'lukas-reineke/indent-blankline.nvim',					-- Indentline
 		'anuvyklack/pretty-fold.nvim',							-- Fold text
+		'nvim-zh/colorful-winsep.nvim',							-- Win separator
 	}
 
 	-- Register, session 
@@ -189,7 +190,8 @@ return require("packer").startup(function(use)
 
 	-- In testing
 	use 'tanvirtin/vgit.nvim'
-	use 'nvim-zh/colorful-winsep.nvim'
+	use 'zbirenbaum/neodim'
+	use 'Weissle/easy-action'
 
 	-- Icon source (need to be placed at the end)
     use 'ryanoasis/vim-devicons'
