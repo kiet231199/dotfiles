@@ -75,20 +75,21 @@ return require("packer").startup(function(use)
 	use {
 		'hrsh7th/nvim-cmp',										-- Completion manager
 		'hrsh7th/cmp-nvim-lsp',									-- Completion for LSP
+		'hrsh7th/cmp-nvim-lsp-document-symbol',
+		'hrsh7th/cmp-nvim-lsp-signature-help',
 		'hrsh7th/cmp-buffer',									-- Completion for buffer
+		'amarakon/nvim-cmp-buffer-lines',
 		'hrsh7th/cmp-path',										-- Completion for directory/file path
 		'hrsh7th/cmp-cmdline',									-- Completion for commandline
-		'saadparwaiz1/cmp_luasnip',								-- Completion for luasnip
-		'quangnguyen30192/cmp-nvim-ultisnips',					-- Completion for ultisnips
-		'dcampos/cmp-snippy',									-- Completion for snippy
+		'dmitmel/cmp-cmdline-history',
 		'petertriho/cmp-git',									-- Completion for snippy
 		'lukas-reineke/cmp-under-comparator',					-- Completion sort	
 	}
 
 	-- Snippet
 	use {
-		'L3MON4D3/LuaSnip',
-		'dcampos/nvim-snippy',
+		'L3MON4D3/LuaSnip',										-- Snippet for LSP
+		'saadparwaiz1/cmp_luasnip',								-- Completion for luasnip
 	}
 
 	-- Highlighter
@@ -125,6 +126,7 @@ return require("packer").startup(function(use)
 		'VonHeikemen/searchbox.nvim', 	         				-- Search box
 		'MunifTanjim/nui.nvim',
 		'kevinhwang91/nvim-hlslens',							-- Highlight search
+		'cshuaimin/ssr.nvim',									-- Structure search
 	}
 
 	-- Scroll
@@ -190,8 +192,9 @@ return require("packer").startup(function(use)
 
 	-- In testing
 	use 'tanvirtin/vgit.nvim'
-	use 'zbirenbaum/neodim'
 	use 'Weissle/easy-action'
+	use 'folke/twilight.nvim'
+	use 'folke/zen-mode.nvim'
 
 	-- Icon source (need to be placed at the end)
     use 'ryanoasis/vim-devicons'

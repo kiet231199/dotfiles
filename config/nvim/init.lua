@@ -6,6 +6,11 @@ vim.cmd [[
 	endif
 ]]
 
+-- Disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- User-defined function
 local option = vim.o
 function IsView()
 	if option.number == true then

@@ -5,7 +5,8 @@
         "unused-local",
         "redefined-local",
         "missing-parameter",
-        "undefined-global"
+        "undefined-global",
+        "need-paren"
     ],
     "Lua.diagnostics.globals": [
         "vim",

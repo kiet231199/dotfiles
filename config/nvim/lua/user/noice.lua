@@ -102,7 +102,7 @@ noice.setup({
 			format = "lsp_progress",
 			--- @type NoiceFormat|string
 			format_done = "lsp_progress_done",
-			throttle = 800, -- frequency to update lsp progress message
+			throttle = 500, -- frequency to update lsp progress message
 			view = "mini",
 		},
 		override = {
@@ -150,7 +150,7 @@ noice.setup({
 			},
 		},
 	},
-	markdown = {
+	--[[ markdown = {
 		hover = {
 			["|(%S-)|"] = vim.cmd.help, -- vim help links
 			["%[.-%]%((%S-)%)"] = require("noice.util").open, -- markdown links
@@ -163,7 +163,7 @@ noice.setup({
 			["^%s*(See also:)"] = "@text.title",
 			["{%S-}"] = "@parameter",
 		},
-	},
+	}, ]]
 	health = {
 		checker = true, -- Disable if you don't want health checks to run
 	},

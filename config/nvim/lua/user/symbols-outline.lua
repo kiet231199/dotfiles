@@ -67,7 +67,7 @@ symbolsoutline.setup({
 	}
 })
 
-vim.api.nvim_set_keymap("", "<F6>", ":WindowsToggleAutowidth<CR>:SymbolsOutline<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("", "<F6>", ":SymbolsOutline<CR>", { noremap = true, silent = true })
 
 vim.cmd [[ 
 	highlight SymbolsOutlineConnector guifg=#A9B1D6

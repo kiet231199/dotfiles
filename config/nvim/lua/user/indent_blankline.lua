@@ -10,7 +10,7 @@ indent_blankline.setup
 	space_char_blankline = " ",
 	show_current_context = true,
 	show_current_context_start = true,
-	char_highlight_list = {
+	--[[ char_highlight_list = {
 		"IndentBlanklineIndent0",
 		"IndentBlanklineIndent1",
 		"IndentBlanklineIndent2",
@@ -21,7 +21,7 @@ indent_blankline.setup
 		"IndentBlanklineIndent7",
 		"IndentBlanklineIndent8",
 		"IndentBlanklineIndent9",
-	},
+	}, ]]
 }
 
 vim.cmd [[

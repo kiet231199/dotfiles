@@ -10,17 +10,18 @@ vim.cmd [[let mapleader=',']]
 -- ========================================== Function key ==========================================
 -- <F2> for Noice
 -- <F3>
--- <F4>
+-- <F4> for CodeWindow
 -- <F5> for Explorer
 -- <F6> for Outline
--- <F7> for Trouble
+-- <F7> for ZenMode
 -- <F8> for Floaterm
 -- <F9> for Git blamer
 -- <F10> for Git messenger
 -- <F11> Toggle view for neovim, so user can copy by using mouse
-vim.api.nvim_set_keymap("n", "<F11>", ":lua IsView()<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<F11>", ":lua IsView()<CR>", opts)
 -- <F12> Toggle relative line numbers and regular line numbers.
-keymap('', '<F12>', ':set norelativenumber!<CR>', { noremap = false, silent = true })
+keymap('', '<F12>n', ':set norelativenumber!<CR>', { noremap = false, silent = true })
+keymap('', '<F12>c', ':set list!<CR>', { noremap = false, silent = true })
 
 -- ========================================== Coding key ==========================================
 -- Clear highlight when press <Esc>
@@ -100,3 +101,8 @@ keymap ("", "<F5>", ":NvimTreeFindFileToggle<CR>", opts)
 
 -- Floaterm
 keymap ("", "<F8>", ":FloatermToggle<CR>", opts)
+
+-- Session
+keymap ("", "sl", ':SessionManager load_last_session<CR>:lua require("notify")("Welcome back: Kiet Pham ﱃ ", "info",{title = "Load session  "})<CR>:noh<CR>', { noremap = false, silent = true })
+keymap ("", "ss", ':SessionManager save_current_session<CR>:lua require("notify")("Session is saved to your SessionManager  ", "info",{title = "Save session  "})<CR>:noh<CR>', { noremap = false, silent = true })
+keymap ("", "sd", ':SessionManager delete_session<CR>', { noremap = false, silent = true })

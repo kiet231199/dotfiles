@@ -51,5 +51,3 @@ trouble.setup({
     },
     use_diagnostic_signs = true -- enabling this will use the signs defined in your lsp client
 })
-
-vim.api.nvim_set_keymap("", "<F7>", ":TroubleToggle<CR>", { noremap = true, silent = true })

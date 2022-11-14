@@ -21,15 +21,12 @@ winsep.setup({
 	end,
 	create_event = function()
 		-- Executed after creating the window divider
+		--[[ if fn.winnr('$') == 3 then
+			local win_id = fn.win_getid(vim.fn.winnr('h'))
+			local filetype = api.nvim_buf_get_option(api.nvim_win_get_buf(win_id), 'filetype')
+			if filetype == "NvimTree" then
+				colorful_winsep.NvimSeparatorDel()
+			end
+		end ]]
 	end
 })
-
-create_event = function()
-	if fn.winnr('$') == 3 then
-		local win_id = fn.win_getid(vim.fn.winnr('h'))
-		local filetype = api.nvim_buf_get_option(api.nvim_win_get_buf(win_id), 'filetype')
-		if filetype == "NvimTree" then
-			colorful_winsep.NvimSeparatorDel()
-		end
-	end
-end

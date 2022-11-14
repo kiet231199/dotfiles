@@ -140,7 +140,7 @@ keymap("", "<leader>fb", ":Telescope file_browser<CR>", opts)
 keymap("", "<leader>fp", ":Telescope project<CR>", opts)
 keymap("", "<leader>fe", ":Telescope find_pickers<CR>", opts)
 keymap("", "<leader>fc", ":Telescope neoclip unnamed extra=star,plus,a,b<CR>", opts)
-keymap("", "<leader>fm", ":Telescope command_palette<CR>", opts)
+keymap("", "<A-m>", ":Telescope command_palette<CR>", opts)
 keymap("", "<leader>fn", ":Telescope noice<CR>", opts)
 keymap("", "<leader>ft", ":TodoTelescope keyword=TODO,FIX,ERROR,HACK,NOTE,WARNING,PERF<CR>", opts)
 

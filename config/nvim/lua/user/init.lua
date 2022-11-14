@@ -62,7 +62,7 @@ require("user.iconpicker")
 --
 require("user.floaterm")
 --
--- require("user.indent_blankline")
+require("user.indent_blankline")
 require("user.pretty-fold")
 require("user.winsep")
 --
@@ -72,3 +72,6 @@ require("user.sessions")
 require("user.codewindow")
 --
 -- require("vgit").setup()
+require("user.ssr")
+require("user.zenmode")
+require("user.twilight")
