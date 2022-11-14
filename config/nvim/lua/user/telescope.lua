@@ -86,11 +86,12 @@ telescope.setup({
 			require("telescope.themes").get_dropdown()
 		},
 		command_palette = {
-			{ "Session",
-
-			},
 			{ "Git",
-
+				{ "VGit buffer hunk preview", ':VGit buffer_hunk_preview ' },
+				{ "VGit buffer diff preview", ':VGit buffer_diff_preview ' },
+				{ "VGit buffer history preview", ':VGit buffer_history_preview ' },
+				{ "VGit buffer blame preview", ':VGit buffer_blame_preview ' },
+				{ "VGit buffer gutter blame preview", ':VGit buffer_gutter_blame_preview ' },
 			},
 			{ "Vim",
 				{ "Toggle Auto Width", 'WindowsToggleAutowidth' },
@@ -127,22 +128,22 @@ telescope.load_extension('noice')
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
-keymap("", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("", "<leader>fw", ":Telescope live_grep<CR>", opts)
-keymap("", "<leader>f<TAB>", ":Telescope buffers<CR>", opts)
-keymap("", "<leader>fh", ":Telescope help_tags<CR>", opts)
-keymap("", "<leader>fk", ":Telescope keymaps<CR>", opts)
-keymap("", "<leader>fd", ":Telescope diagnostics<CR>", opts)
-keymap("", "<leader>fr", ":Telescope registers<CR>", opts)
-keymap("", "<leader>fg", ":Telescope git_commits<CR>", opts)
+keymap("", "ff", ":Telescope find_files<CR>", opts)
+keymap("", "fw", ":Telescope live_grep<CR>", opts)
+keymap("", "f<TAB>", ":Telescope buffers<CR>", opts)
+keymap("", "fh", ":Telescope help_tags<CR>", opts)
+keymap("", "fk", ":Telescope keymaps<CR>", opts)
+keymap("", "fd", ":Telescope diagnostics<CR>", opts)
+keymap("", "fr", ":Telescope registers<CR>", opts)
+keymap("", "fg", ":Telescope git_commits<CR>", opts)
 
-keymap("", "<leader>fb", ":Telescope file_browser<CR>", opts)
-keymap("", "<leader>fp", ":Telescope project<CR>", opts)
-keymap("", "<leader>fe", ":Telescope find_pickers<CR>", opts)
-keymap("", "<leader>fc", ":Telescope neoclip unnamed extra=star,plus,a,b<CR>", opts)
-keymap("", "<A-m>", ":Telescope command_palette<CR>", opts)
-keymap("", "<leader>fn", ":Telescope noice<CR>", opts)
-keymap("", "<leader>ft", ":TodoTelescope keyword=TODO,FIX,ERROR,HACK,NOTE,WARNING,PERF<CR>", opts)
+keymap("", "fb", ":Telescope file_browser<CR>", opts)
+keymap("", "fp", ":Telescope project<CR>", opts)
+keymap("", "fe", ":Telescope find_pickers<CR>", opts)
+keymap("", "fc", ":Telescope neoclip unnamed extra=star,plus,a,b<CR>", opts)
+keymap("", "fm", ":Telescope command_palette<CR>", opts)
+keymap("", "fn", ":Telescope noice<CR>", opts)
+keymap("", "ft", ":TodoTelescope keyword=TODO,FIX,ERROR,HACK,NOTE,WARNING,PERF<CR>", opts)
 
 -- <C-n>/<Down			Next item
 -- <C-p>/<Up			Previous item

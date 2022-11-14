@@ -36,11 +36,12 @@ return require("packer").startup(function(use)
 		'kdheepak/lazygit.nvim',   		 						-- Lazygit
 		'sindrets/diffview.nvim',								-- Git diff
 		'akinsho/git-conflict.nvim',							-- Solve conflict faster
+		'tanvirtin/vgit.nvim',									-- Visual git
 	}
 
 	-- Fuzzy finder
 	use {
-		'nvim-telescope/telescope.nvim',      					-- Telescope
+		'nvim-telescope/telescope.nvim',						-- Telescope
 		'nvim-lua/plenary.nvim',								-- Prevent duplicate function
 		'nvim-telescope/telescope-file-browser.nvim',			-- File browser
 		{
@@ -94,7 +95,7 @@ return require("packer").startup(function(use)
 
 	-- Highlighter
 	use {
-		'nvim-treesitter/nvim-treesitter',						-- Code highlight
+		{'nvim-treesitter/nvim-treesitter', tag = 'v0.8.0' },	-- Code highlight
 		'p00f/nvim-ts-rainbow',									-- Bracket color
 	}
 
@@ -105,7 +106,7 @@ return require("packer").startup(function(use)
 	}
 
 	-- Notice
-	use 'rcarriga/nvim-notify'            		      			-- Notice popup
+	use { 'rcarriga/nvim-notify', tag = 'v3.8.0' } 		   		-- Notice popup
 
 	-- Commenter
 	use {
@@ -117,7 +118,6 @@ return require("packer").startup(function(use)
 	use {
 		'Vonr/align.nvim',										-- Quick align
 		'fedepujol/move.nvim',                   				-- Quick move
-		'mg979/vim-visual-multi',						    	-- Multi cursor
 		'kqito/vim-easy-replace',								-- Quick replace
 		'nguyenvukhang/nvim-toggler',							-- Toggle word (true/false)
 	}
@@ -181,6 +181,8 @@ return require("packer").startup(function(use)
 		'lukas-reineke/indent-blankline.nvim',					-- Indentline
 		'anuvyklack/pretty-fold.nvim',							-- Fold text
 		'nvim-zh/colorful-winsep.nvim',							-- Win separator
+		'folke/zen-mode.nvim',									-- Focus on function
+		'folke/twilight.nvim',
 	}
 
 	-- Register, session 
@@ -190,19 +192,12 @@ return require("packer").startup(function(use)
 	-- Minmap
 	use 'gorbit99/codewindow.nvim'								-- Minimap window
 
-	-- In testing
-	use 'tanvirtin/vgit.nvim'
-	use 'Weissle/easy-action'
-	use 'folke/twilight.nvim'
-	use 'folke/zen-mode.nvim'
-
 	-- Icon source (need to be placed at the end)
     use 'ryanoasis/vim-devicons'
 	use 'kyazdani42/nvim-web-devicons'
 end)
 
 -- ERROR: Clangd cannot format with 4 space tab_width (lspconfig)
--- ERROR: Ultisnips not silent
 -- TODO: Add function in telescope command palette
 -- TODO: Config color for lualine
 -- Lualine in: tokyonight.nvim/lua/lualine/themes/tokyonight.lua
