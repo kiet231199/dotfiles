@@ -193,6 +193,7 @@ return require("packer").startup(function(use)
 	use 'gorbit99/codewindow.nvim'								-- Minimap window
 
 	-- Test
+	use 'petertriho/nvim-scrollbar'
 
 	-- Icon source (need to be placed at the end)
     use 'ryanoasis/vim-devicons'

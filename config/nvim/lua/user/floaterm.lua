@@ -14,6 +14,9 @@ for k,v in pairs(floaterm) do
 	vim.g[k] = v
 end
 
+vim.api.nvim_create_autocmd("TermOpen", { command = ":SmoothCursorStop", })
+vim.api.nvim_create_autocmd("TermClose", { command = ":SmoothCursorStart", })
+
 -- " Move floaterm
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
