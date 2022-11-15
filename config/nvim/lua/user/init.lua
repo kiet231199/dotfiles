@@ -8,6 +8,7 @@ require("user.impatient")
 require("user.tokyonight")
 --
 require("user.nvim-tree")
+require("user.jabs")
 --
 require("user.lualine")
 require("user.tabline")
@@ -75,3 +76,5 @@ require("user.codewindow")
 --
 require("vgit").setup()
 require("user.ssr")
+--
+require("user.whichkey")

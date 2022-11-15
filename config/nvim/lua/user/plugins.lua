@@ -20,8 +20,9 @@ return require("packer").startup(function(use)
 	-- Colorscheme
     use 'folke/tokyonight.nvim'									-- Colorscheme
 
-	-- File explorer
-	use 'nvim-tree/nvim-tree.lua'								-- Explorer
+	-- Workspace
+	use 'nvim-tree/nvim-tree.lua'								-- File explorer
+	use 'matbme/JABS.nvim'										-- Tab explorer
 
 	-- Tabline and statusline
 	use {
@@ -34,7 +35,7 @@ return require("packer").startup(function(use)
 		'lewis6991/gitsigns.nvim',					    		-- Git icon
 		'rhysd/git-messenger.vim', 	            				-- Git messenger
 		'kdheepak/lazygit.nvim',   		 						-- Lazygit
-		'sindrets/diffview.nvim',								-- Git diff
+		{ 'sindrets/diffview.nvim', commit = '03deb5' },		-- Git diff
 		'akinsho/git-conflict.nvim',							-- Solve conflict faster
 		'tanvirtin/vgit.nvim',									-- Visual git
 	}
@@ -106,7 +107,7 @@ return require("packer").startup(function(use)
 	}
 
 	-- Notice
-	use { 'rcarriga/nvim-notify', tag = 'v3.8.0' } 		   		-- Notice popup
+	use { 'rcarriga/nvim-notify', tag = 'v3.8.0' } 		   		-- Message popup
 
 	-- Commenter
 	use {
@@ -192,17 +193,19 @@ return require("packer").startup(function(use)
 	-- Minmap
 	use 'gorbit99/codewindow.nvim'								-- Minimap window
 
+	-- Test
+	use 'folke/which-key.nvim'
+
 	-- Icon source (need to be placed at the end)
     use 'ryanoasis/vim-devicons'
 	use 'kyazdani42/nvim-web-devicons'
 end)
 
 -- ERROR: Clangd cannot format with 4 space tab_width (lspconfig)
--- TODO: Add function in telescope command palette
 -- TODO: Config color for lualine
 -- Lualine in: tokyonight.nvim/lua/lualine/themes/tokyonight.lua
--- TODO: Config color for indentline
 -- TODO: Config color for telescope
+-- TODO: Config colof for lspsaga
 -- TODO: Config color for dressing
 
 -- INFO: Future plugins (consider later)
