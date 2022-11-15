@@ -106,9 +106,6 @@ return require("packer").startup(function(use)
 		'kylechui/nvim-surround',           					-- Smart pair
 	}
 
-	-- Notice
-	use { 'rcarriga/nvim-notify', tag = 'v3.8.0' } 		   		-- Message popup
-
 	-- Commenter
 	use {
 		'numToStr/Comment.nvim',								-- Quick comment
@@ -139,6 +136,7 @@ return require("packer").startup(function(use)
 
 	-- Better UI
 	use {
+		{ 'rcarriga/nvim-notify', tag = 'v3.8.0' }, 	   		-- Message popup
 		'stevearc/dressing.nvim',								-- Make popup better
 		{
 			'folke/noice.nvim', 								-- Show message popup, LSP progress, popup commandline
@@ -153,7 +151,8 @@ return require("packer").startup(function(use)
 					vim.fn['fzf#install']()
 				end
 			}
-		}
+		},
+		'folke/which-key.nvim',									-- Show keymap
 	}
 
 	-- Smooth window swapping
@@ -194,7 +193,6 @@ return require("packer").startup(function(use)
 	use 'gorbit99/codewindow.nvim'								-- Minimap window
 
 	-- Test
-	use 'folke/which-key.nvim'
 
 	-- Icon source (need to be placed at the end)
     use 'ryanoasis/vim-devicons'
@@ -202,6 +200,7 @@ return require("packer").startup(function(use)
 end)
 
 -- ERROR: Clangd cannot format with 4 space tab_width (lspconfig)
+-- TODO: Config window size for which-key
 -- TODO: Config color for lualine
 -- Lualine in: tokyonight.nvim/lua/lualine/themes/tokyonight.lua
 -- TODO: Config color for telescope

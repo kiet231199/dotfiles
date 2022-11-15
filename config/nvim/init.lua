@@ -30,6 +30,14 @@ function IsView()
 	end
 end
 
+function SetGlobalStatusLine()
+	if option.laststatus == 3 then
+		option.laststatus = 2
+	else
+		option.laststatus = 3
+	end
+end
+
 require("options")		 	-- Store all neovim configuration
 require("keymaps")		 	-- Store all neovim remap
 require("user")          	-- Call all plugins configuration

@@ -3,7 +3,7 @@ local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
 -- Shorten function name
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 -- Map <leader> to ,
 vim.cmd [[let mapleader=',']]
@@ -18,10 +18,14 @@ vim.cmd [[let mapleader=',']]
 -- <F9> for Git blamer
 -- <F10> for Git messenger
 -- <F11> Toggle view for neovim, so user can copy by using mouse
-vim.api.nvim_set_keymap("n", "<F11>", ":lua IsView()<CR>", opts)
--- <F12> Toggle relative line numbers and regular line numbers.
+keymap("n", "<F11>", ":lua IsView()<CR>", opts)
+-- <F12> 
+-- Toggle relative number
+-- Toggle char list
+-- Toggle global statusline
 keymap('', '<F12>n', ':set norelativenumber!<CR>', { noremap = false, silent = true })
 keymap('', '<F12>c', ':set list!<CR>', { noremap = false, silent = true })
+keymap('', '<F12>s', ':lua SetGlobalStatusLine()<CR>', { noremap = false, silent = true })
 
 -- ========================================== Coding key ==========================================
 -- Clear highlight when press <Esc>

@@ -36,8 +36,6 @@ require("user.neoclip")
 require("user.nvim-autopairs")
 require("nvim-surround").setup()						-- Leave empty for default config
 --
-require("user.notify")
---
 require("user.comment")
 require("user.todo")
 --
@@ -52,9 +50,11 @@ require("user.neoscroll")
 require("user.scrollview")
 require("user.smoothcursor")
 --
+require("user.notify")
 require("user.dressing")
 -- require("user.noice") -- Lazyloaded
 require("bqf").setup()
+require("user.whichkey")
 --
 require("user.windows")
 --
@@ -77,4 +77,3 @@ require("user.codewindow")
 require("vgit").setup()
 require("user.ssr")
 --
-require("user.whichkey")

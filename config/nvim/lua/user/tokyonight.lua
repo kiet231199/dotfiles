@@ -23,7 +23,7 @@ tokyonight.setup({
     },
     sidebars = { "qf", "help", "packer" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
     hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
-    dim_inactive = false, -- dims inactive windows
+    dim_inactive = true, -- dims inactive windows
     lualine_bold = true, -- When `true`, section headers in the lualine theme will be bold
 
     -- You can override specific color groups to use other groups or a hex color
@@ -53,25 +53,6 @@ tokyonight.setup({
 		hl.NvimTreeLspDiagnosticsError = { fg = cl.yellow }
 		hl.NvimTreeLspDiagnosticsError = { fg = cl.blue2 }
 		hl.NvimTreeLspDiagnosticsError = { fg = cl.tear }
-		-- Barbar
-		hl.BufferCurrent = { bg = cl.blue, fg = black, bold = true }
-		hl.BufferCurrentIndex = { bg = cl.blue, fg = black, bold = true }
-		hl.BufferCurrentMod = { bg = cl.blue, fg = black, bold = true }
-		hl.BufferCurrentSign = { bg = cl.blue, fg = cl.fg_gutter, bold = true }
-		-- hl.BufferCurrentTarget = { bg = black, fg = cl.blue, bold = true }
-		
-		hl.BufferVisible = { bg = cl.fg_gutter, fg = cl.magenta, bold = true }
-		hl.BufferVisibleIndex = { bg = cl.fg_gutter, fg = cl.magenta, bold = true }
-		hl.BufferVisibleMod = { bg = cl.fg_gutter, fg = cl.magenta, bold = true }
-		-- hl.BufferVisibleSign = { bg = black, fg = cl.blue, bold = true }
-		-- hl.BufferVisibleTarget = { bg = c.bg_statusline, fg = c.red }
-		-- hl.BufferInactive = { bg = c.bg_statusline, fg = c.dark5 }
-		-- hl.BufferInactiveIndex = { bg = c.bg_statusline, fg = c.dark5 }
-		-- hl.BufferInactiveMod = { bg = c.bg_statusline, fg = util.darken(c.warning, 0.7) }
-		-- hl.BufferInactiveSign = { bg = c.bg_statusline, fg = c.border_highlight }
-		-- hl.BufferInactiveTarget = { bg = c.bg_statusline, fg = c.red }
-		-- hl.BufferTabpages = { bg = c.bg_statusline, fg = c.none }
-		-- hl.BufferTabpageFill = { bg = c.bg_statusline, fg = c.border_highlight }
 	end,
 })
 
