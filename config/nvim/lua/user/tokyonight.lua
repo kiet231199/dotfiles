@@ -56,31 +56,4 @@ tokyonight.setup({
 	end,
 })
 
-vim.cmd[[
-	highlight cNormal guifg=#BDC7F1 guibg=#1A1B26
-	highlight MyLine guifg=#A9B1D6 guibg=cNormal
-	highlight ScrollView guifg=#A9B1D6 guibg=None
-	highlight MyHlSearch guifg=Red guibg=cNormal
-	highlight Pmenu guibg=cNormal
-	highlight PmenuSel guifg=None guibg=#292938
-	highlight PmenuSbar guibg=cNormal
-	highlight PmenuThumb guifg=#A9B1D6
-	highlight cPmenuThumb guifg=#A9B1D6 guibg=None
-	
-	highlight GitSignsCurrentLineBlame guifg=Yellow guibg=cNormal
-
-	highlight default link HlSearchNear IncSearch
-	highlight default link HlSearchLens cNormal
-	highlight default link HlSearchLensNear MyHlSearch
-	highlight default link HlSearchFloat IncSearch
-
-	highlight default link BufferCurrentIcon BufferCurrent
-	highlight default link BufferVisibleIcon BufferVisible
-	highlight default link BufferInactiveIcon BufferInactive
-	highlight default link BufferOffset BufferTabpageFill
-
-	highlight Floaterm guibg=Normal
-	highlight FloatermBorder guifg=#A9B1D6 guibg=Normal
-
-	colorscheme tokyonight
-]]
+vim.cmd'colorscheme tokyonight'

@@ -201,6 +201,7 @@ return require("packer").startup(function(use)
 end)
 
 -- ERROR: Clangd cannot format with 4 space tab_width (lspconfig)
+-- TODO: Config keymap for gitsign (remove <space>)
 -- TODO: Config window size for which-key
 -- TODO: Config color for lualine
 -- Lualine in: tokyonight.nvim/lua/lualine/themes/tokyonight.lua

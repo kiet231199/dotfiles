@@ -33,7 +33,4 @@ vim.cmd [[
 	nnoremap <leader>gg <C-\><C-n> :FloatermNew --height=0.98 --width=0.98 --wintype=float<CR>bash<CR>lazygit<CR>
 
 	tnoremap <C-t> <C-\><C-n>
-
-	highlight Floaterm guibg=Normal
-	highlight FloatermBorder guifg=Red
 ]]

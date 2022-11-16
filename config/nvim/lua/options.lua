@@ -36,8 +36,9 @@ local options = {
 	wildmenu       = true,
 	wildmode       = "list",
 	synmaxcol      = 300,
-	filetype       = on,
-	-- lazyredraw  = true,
+	filetype  	   = on,
+	whichwrap  	   = "bs<>[]hl",
+	diffopt		   = { "filler" , "vertical" },
 }
 
 vim.opt.listchars:append "space:▁"
@@ -45,19 +46,15 @@ vim.opt.listchars:append "eol:↲"
 vim.opt.listchars:append "tab:░░"
 
 vim.opt.shortmess:append "c"
+vim.opt.iskeyword:append "-"
+vim.opt.whichwrap:append "<,>,[,],h,l"
+vim.opt.formatoptions:remove({ "c", "r", "o" })
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
--- Vim cmd config
-vim.cmd [[
-    set whichwrap+=<,>,[,],h,l
-    set iskeyword+=-
-    set formatoptions-=cro
-	set modifiable
-    autocmd Filetype gitcommit setlocal spell textwidth=72 						     	" Set limitation for git commit
-	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o		" Disable automatic comment in newline
-]]
+-- Set limitation for git commit
+vim.cmd 'autocmd Filetype gitcommit setlocal spell textwidth=72'
 
 

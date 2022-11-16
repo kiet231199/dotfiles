@@ -18,6 +18,7 @@ require("user.gitmessenger")
 require("user.lazygit")
 require("user.diffview")
 require("user.git-conflict")
+--require("vgit").setup()
 --
 require("user.telescope")
 --
@@ -74,6 +75,6 @@ require("user.sessions")
 --
 require("user.codewindow")
 --
-require("vgit").setup()
 require("user.ssr")
 --
+require("user.highlight")

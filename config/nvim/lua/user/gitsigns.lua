@@ -4,15 +4,6 @@ if not status_ok then
 	return
 end
 
-vim.cmd [[
-	highlight GitSignsAdd guifg=Green
-	highlight GitSignAddNr guifg=Green
-	highlight GitSignsChange guifg=Yellow
-	highlight GitSignsChangeNr guifg=Yellow
-	highlight GitSignsDelete guifg=Red
-	highlight GitSignsDeleteNr guifg=Red
-]]
-
 gitsigns.setup({
 	signs = {
 		add          = {hl = 'GitSignsAdd'   , text = ' ', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
@@ -93,6 +84,6 @@ gitsigns.setup({
 	end
 })
 
-vim.cmd [[set statusline+=%{get(b:,'gitsigns_status','')}]]
+vim.cmd[[set statusline+=%{get(b:,'gitsigns_status','')}]]
 
 vim.api.nvim_set_keymap('', '<F9>', ':Gitsigns toggle_current_line_blame<CR>', { noremap = true, silent = true })

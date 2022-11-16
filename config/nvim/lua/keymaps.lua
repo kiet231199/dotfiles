@@ -57,6 +57,9 @@ keymap('n', 'te', ':tabedit', opts)
 keymap('n', 'sh', ':split<CR><C-w>w', opts)
 keymap('n', 'sv', ':vsplit<CR><C-w>w', opts)
 
+-- Diff files
+keymap('n', 'dv', ':diffsplit', opts)
+
 -- Resize with arrows
 keymap("n", "<A-Up>", ":resize -2<CR>", opts)
 keymap("n", "<A-Down>", ":resize +2<CR>", opts)
