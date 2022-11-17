@@ -9,6 +9,9 @@ highlight(0, "PmenuSel", { fg = None, bg = "#292938" })
 highlight(0, "PmenuSbar", { bg = cNormal })
 highlight(0, "PmenuThumb", { fg = "#a9b1d6" })
 
+-- Swap Split group
+-- highlight(0, 'SwapSplitStatusLine', { fg = "Black", bg = "Red", bold = true })
+
 -- Floaterm group
 highlight(0, 'Floaterm', { bg = Normal })
 highlight(0, 'FloatermBorder', { fg = "Red" })
@@ -32,3 +35,18 @@ highlight(0, "HlSearchLens", { link = "cNormal" })
 highlight(0, "HlSearchLensNear", { link = "MyHlSearch" })
 highlight(0, "HlSearchFloat", { link = "IncSearch" })
 
+-- Trouble group
+highlight(0, "TroubleTextInformation", { link = "DiagnosticVirtualTextInfo" })
+highlight(0, "TroubleTextError", { link = "DiagnosticError" })
+highlight(0, "TroubleTextWarning", { link = "DiagnosticWarning" })
+highlight(0, "TroubleTextHint", { link = "DiagnosticHint" })
+
+-- Telescope group
+highlight(0, "TelescopeMatching", { fg = "Orange", bold = true })
+highlight(0, "TelescopePreviewMatch", { link = "MyHlSearch" })
+
+-- Cmp group
+highlight(0, "CmpItemAbbrMatch", { fg = "Orange", bold = true })
+highlight(0, "CmpItemAbbrMatchDefault", { fg = "Orange", bold = true })
+highlight(0, "CmpItemAbbrMatchFuzzy", { fg = "Red", bold = true })
+highlight(0, "CmpItemAbbrMatchFuzzyDefault", { fg = "Red", bold = true })

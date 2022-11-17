@@ -21,7 +21,7 @@ telescope.setup({
 		-- config_key = value,
 		-- other layout configuration here
 		prompt_prefix = '🔍: ',
-		initial_mode = "normal",
+		initial_mode = "insert",
 		selection_strategy = "reset",
 		layout_config = {
 			center = {
@@ -41,7 +41,7 @@ telescope.setup({
 			height = 0.9,
 			preview_cutoff = 120,
 		},
-		winblend = 20,
+		winblend = 12,
 		color_devicons = true,
 		set_env = { ["COLORTERM"] = "truecolor" },
 	},

@@ -60,7 +60,7 @@ return require("packer").startup(function(use)
 	use {
 		'neovim/nvim-lspconfig',				                -- LSP config manager
 		'williamboman/mason.nvim',								-- LSP installer
-		'folke/neodev.nvim',									-- LSP autoconfig
+		'https://git.sr.ht/~whynothugo/lsp_lines.nvim',			-- LSP line diagnostics
 		'lukas-reineke/lsp-format.nvim',						-- LSP formatter
 		'adoyle-h/lsp-toggle.nvim',								-- Enable/disable LSP
 		'folke/trouble.nvim',                    				-- Show LSP diagnostics
@@ -69,7 +69,6 @@ return require("packer").startup(function(use)
 			'MunifTanjim/prettier.nvim',						-- Prettier for buitin language
 		},
 		'glepnir/lspsaga.nvim',				  					-- LSP UI
-		'simrat39/symbols-outline.nvim',			 			-- LSP UI for Outline
 		'Djancyp/lsp-range-format',
 	}
 
@@ -162,6 +161,7 @@ return require("packer").startup(function(use)
 			"anuvyklack/middleclass",
 			"anuvyklack/animation.nvim",
 		},
+		'xorid/swap-split.nvim',
 	}
 
 	-- Picker
@@ -202,12 +202,6 @@ end)
 
 -- ERROR: Clangd cannot format with 4 space tab_width (lspconfig)
 -- TODO: Config keymap for gitsign (remove <space>)
--- TODO: Config window size for which-key
--- TODO: Config color for lualine
--- Lualine in: tokyonight.nvim/lua/lualine/themes/tokyonight.lua
--- TODO: Config color for telescope
--- TODO: Config colof for lspsaga
--- TODO: Config color for dressing
 
 -- INFO: Future plugins (consider later)
 -- Barbar

@@ -28,7 +28,6 @@ require("user.trouble")
 require("user.null-ls")
 require("user.prettier")
 require("user.lspsaga")
-require("user.symbols-outline")
 require("user.cmp")
 --
 require("user.treesitter")

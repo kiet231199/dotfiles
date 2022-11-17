@@ -36,8 +36,6 @@ local function config_winbar_or_statusline()
         win_val = get_file_name(false)
         if sym ~= nil then win_val = win_val .. sym end
         vim.wo.winbar = win_val
-        -- if work in statusline
-        -- vim.wo.stl = win_val
     end
 end
 
@@ -56,12 +54,14 @@ vim.api.nvim_create_autocmd('User', {
 saga.init_lsp_saga
 {
     border_style = "rounded",
-    saga_winblend = 20,
+    saga_winblend = 12,
     -- when cursor in saga window you config these to move
     move_in_saga = { prev = '<C-p>',next = '<C-n>'},
     diagnostic_header = { " ", " ", " ", " " },
+	-- preview lines above of lsp_finder
+	preview_lines_above = 2,
     -- preview lines of lsp_finder and definition preview
-    max_preview_lines = 20,
+    max_preview_lines = 30,
     -- use emoji lightbulb in default
     code_action_icon = " ",
     -- if true can press number to execute the codeaction in codeaction window
@@ -87,9 +87,9 @@ saga.init_lsp_saga
     -- you may need to increase this value
     finder_request_timeout = 1500,
     finder_action_keys = {
-        open = "o",
-        vsplit = "s",
-        split = "i",
+        open = "<CR>",
+        vsplit = "v",
+        split = "s",
         tabe = "t",
         quit = "q",
     },
@@ -168,4 +168,4 @@ end, { silent = true })
 -- Hover Doc
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 -- Outline
-keymap("n", "gl", "<cmd>WindowsToggleAutowidth<CR><cmd>LSoutlineToggle<CR>",{ silent = true })
+keymap("n", "<F6>", "<cmd>WindowsToggleAutowidth<CR><cmd>LSoutlineToggle<CR>",{ silent = true })

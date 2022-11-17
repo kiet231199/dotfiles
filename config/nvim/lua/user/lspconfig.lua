@@ -83,11 +83,6 @@ local lsp_flags = {
 	debounce_text_changes = 150,
 }
 
--- Neodev
--- require("neodev").setup({
--- 	-- leave empty to use the default settings
--- })
-
 local tabwidth = function()
     return vim.opt.shiftwidth:get()
 end
@@ -102,7 +97,6 @@ require("lsp-format").setup {
 	python = { tab_width = tabwidth },
 	vim = { tab_width = tabwidth },
 }
-
 
 -- local on_attach = function(client)
 --     -- ... custom code ...
@@ -196,6 +190,10 @@ require 'lspconfig'.vimls.setup {
 		vimruntime = ""
 	}
 }
+
+-- LSP lines
+require("lsp_lines").setup()
+vim.keymap.set("", "<F3>", require'lsp_lines'.toggle, { desc = "Toggle lsp_lines" })
 
 -- LSP toggle
 require("lsp-toggle").setup({ telescope = true })

@@ -178,5 +178,3 @@ require("cmp").setup.cmdline(':', {
 		{ name = 'cmdline_history' }
 	})
 })
-
-vim.api.nvim_set_keymap("v", "fr", ":lua require'lsp-range-format'.format()<CR>", { noremap = true, silent = true })

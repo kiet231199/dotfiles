@@ -40,6 +40,7 @@ tokyonight.setup({
     -- @param colors ColorScheme
     on_highlights = function(hl, cl)
 		local black = "#000000"
+		local prompt = "#2d3149"
 		-- Common
 		hl.WinSeparator = { fg = cl.magenta, bold = true }
 		hl.LineNr = { fg = "#697094" }
@@ -47,12 +48,21 @@ tokyonight.setup({
 		hl.IncSearch = { fg = black, bg = cl.red1 }
 		hl.TabLineFill = { bg = "#13141c" }
 		-- NvimTree
-		hl.NvimTreeWinSeparator = { fg = "#A9B1D6" }
-		hl.NvimTreeIndentMarker = { fg = "#A9B1D6" }
-		hl.NvimTreeLspDiagnosticsError = { fg = cl.red1 }
-		hl.NvimTreeLspDiagnosticsError = { fg = cl.yellow }
-		hl.NvimTreeLspDiagnosticsError = { fg = cl.blue2 }
-		hl.NvimTreeLspDiagnosticsError = { fg = cl.tear }
+		hl.NvimTreeWinSeparator = { fg = "#a9b1d6" }
+		hl.NvimTreeIndentMarker = { fg = "#a9b1d6" }
+		hl.NvimTreeLspDiagnosticsError = { fg = cl.error }
+		hl.NvimTreeLspDiagnosticsWarning = { fg = cl.warning }
+		hl.NvimTreeLspDiagnosticsInformation = { fg = cl.info }
+		hl.NvimTreeLspDiagnosticsHint = { fg = cl.hint }
+		-- Telescope
+		hl.TelescopePromptBorder = { fg = cl.yellow }
+		hl.TelescopePreviewBorder = { fg = cl.magenta }
+		hl.TelescopeResultsBorder = { fg = cl.red }
+		hl.TelescopePromptTitle = { fg = cl.yellow }
+		hl.TelescopePreviewTitle = { fg = cl.magenta }
+		hl.TelescopeResultsTitle = { fg = cl.red }
+		-- Whichkey
+		hl.WhichKey = { fg = cl.yellow }
 	end,
 })
 
