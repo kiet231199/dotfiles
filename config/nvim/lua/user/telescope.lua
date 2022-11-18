@@ -21,7 +21,7 @@ telescope.setup({
 		-- config_key = value,
 		-- other layout configuration here
 		prompt_prefix = '🔍: ',
-		initial_mode = "insert",
+		initial_mode = "normal",
 		selection_strategy = "reset",
 		layout_config = {
 			center = {

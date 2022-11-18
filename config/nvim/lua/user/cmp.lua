@@ -86,27 +86,41 @@ require("cmp").setup({
 		end, { "i", "s" }),
 	},
 	formatting = {
-		-- fields = { "abbr" ,"kind", "menu" },
-		fields = { "abbr" ,"kind"},
+		fields = { "abbr" ,"kind", "menu" },
 		format = function(entry, vim_item)
 			-- Kind icons
 			vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
 			vim_item.menu = ({
 				nvim_lsp = "[LSP]",
+				nvim_lsp_document_symbols = "[Doc]",
 				luasnip = "[Snippet]",
 				buffer = "[Buffer]",
+				buffer_lines = "[Buffer]",
+				cmdline = "[Cmd]",
+				cmdline_history = "[History]",
 				path = "[Path]",
+				rg = "[RG]",
+				ctags = "[Ctags]",
+				env = "[Env]",
 			})[entry.source.name]
+			vim_item.dup = ({	-- Remove duplicate in source
+				cmdline_history = 0,
+			})[entry.source.name] or 0
+			local maxwidth = 40
+			vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
 			return vim_item
 		end,
+		expandable_indicator = true,
 	},
 	sources = require("cmp").config.sources({
-		{ name = "nvim_lsp" },
-		{ name = "nvim_lsp_signature_help" },
-		{ name = "luasnip", option = { show_autosnippets = true } },
-		{ name = "path" },
-	}, {
-		{ name = "buffer" },
+		{ name = "luasnip", option = { show_autosnippets = true }, priority = 9 },
+		{ name = "nvim_lsp", priority = 8 },
+		{ name = "nvim_lsp_signature_help", priority = 8 },
+		{ name = "buffer", priority = 7 },
+		{ name = "ctags", priority = 6 },
+		{ name = "path", priority = 5 },
+		{ name = "env", priority = 4 },
+		{ name = "rg", priority = 3 },
 	}),
 	confirm_opts = {
 		behavior = require("cmp").ConfirmBehavior.Replace,
@@ -117,6 +131,8 @@ require("cmp").setup({
 			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
 		},
 		completion = {
+			max_width = 40,
+			max_height = 25,
 			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
 		},
 	},
@@ -125,11 +141,13 @@ require("cmp").setup({
 		native_menu = false,
 	},
 	sorting = {
+		priority_weight = 2,
         comparators = {
+            require("cmp-under-comparator").under,
             require("cmp").config.compare.offset,
             require("cmp").config.compare.exact,
             require("cmp").config.compare.score,
-            require "cmp-under-comparator".under,
+            require("cmp").config.compare.recently_used,
             require("cmp").config.compare.kind,
             require("cmp").config.compare.sort_text,
             require("cmp").config.compare.length,
@@ -141,9 +159,10 @@ require("cmp").setup({
 -- Set configuration for specific filetype.
 require("cmp").setup.filetype('gitcommit', {
 	sources = require("cmp").config.sources({
-		{ name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-	}, {
-		{ name = 'buffer' },
+		{ name = 'cmp_git', priority = 4 }, -- You can specify the `cmp_git` source if you were installed it.
+		{ name = 'buffer', priority = 3 },
+		{ name = 'path', priority = 2 },
+		{ name = 'ctags', priority = 1 },
 	})
 })
 
@@ -151,19 +170,21 @@ require("cmp").setup.filetype('gitcommit', {
 require("cmp").setup.cmdline({ '/', '?' }, {
 	mapping = require("cmp").mapping.preset.cmdline(),
 	sources = require("cmp").config.sources({
-		{ name = 'nvim_lsp_document_symbols' }
-	},{
+		{ name = 'nvim_lsp_document_symbols', priority = 4 },
 		{
 			name = 'buffer',
-			option = { keyword_pattern = [[\k\+]] }
+			option = { keyword_pattern = [[\k\+]] },
+			priority = 3,
 		},
 		{
 			name = 'buffer-lines',
 			option = {
 				words = true,
 				comments = true,
-			}
-		}
+			},
+			priority = 2,
+		},
+		{ name = 'ctags', priority = 1 },
 	})
 })
 
@@ -171,10 +192,8 @@ require("cmp").setup.cmdline({ '/', '?' }, {
 require("cmp").setup.cmdline(':', {
 	mapping = require("cmp").mapping.preset.cmdline(),
 	sources = require("cmp").config.sources({
-		{ name = 'path' }
-	}, {
-		{ name = 'cmdline' }
-	}, {
-		{ name = 'cmdline_history' }
+		{ name = 'cmdline', priority = 3 },
+		{ name = 'path', priority = 2 },
+		{ name = 'cmdline_history', priority = 1 },
 	})
 })

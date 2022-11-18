@@ -66,21 +66,25 @@ gitsigns.setup({
 			return '<Ignore>'
 		end, {expr=true})
 
+		-- Navigation
+		map('n', '<space>hn', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", {expr=true})
+		map('n', '<space>hp', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", {expr=true})
+
 		-- Actions
 		map({'n', 'v'}, '<space>hs', ':Gitsigns stage_hunk<CR>')
 		map({'n', 'v'}, '<space>hr', ':Gitsigns reset_hunk<CR>')
 		map('n', '<space>hS', gs.stage_buffer)
 		map('n', '<space>hu', gs.undo_stage_hunk)
 		map('n', '<space>hR', gs.reset_buffer)
-		map('n', '<space>hp', gs.preview_hunk)
-		map('n', '<space>hb', function() gs.blame_line{full=true} end)
+		map('n', '<space>hv', gs.preview_hunk)
+		-- map('n', '<space>hb', function() gs.blame_line{full=true} end)
 		map('n', '<space>tb', gs.toggle_current_line_blame)
 		map('n', '<space>hd', gs.diffthis)
 		map('n', '<space>hD', function() gs.diffthis('~') end)
-		map('n', '<space>td', gs.toggle_deleted)
+		-- map('n', '<space>td', gs.toggle_deleted)
 
 		-- Text object
-		map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+		-- map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
 	end
 })
 

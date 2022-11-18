@@ -72,7 +72,7 @@ return require("packer").startup(function(use)
 		'Djancyp/lsp-range-format',
 	}
 
-	-- LSP completion
+	-- LSP completion source
 	use {
 		'hrsh7th/nvim-cmp',										-- Completion manager
 		'hrsh7th/cmp-nvim-lsp',									-- Completion for LSP
@@ -83,7 +83,10 @@ return require("packer").startup(function(use)
 		'hrsh7th/cmp-path',										-- Completion for directory/file path
 		'hrsh7th/cmp-cmdline',									-- Completion for commandline
 		'dmitmel/cmp-cmdline-history',
+		'lukas-reineke/cmp-rg',									-- Completion for ripgrep
 		'petertriho/cmp-git',									-- Completion for snippy
+		'delphinus/cmp-ctags',
+		'bydlw98/cmp-env',
 		'lukas-reineke/cmp-under-comparator',					-- Completion sort	
 	}
 
@@ -155,11 +158,12 @@ return require("packer").startup(function(use)
 	}
 
 	-- Smooth window swapping
-	use {
-		'anuvyklack/windows.nvim',
-		requires = {
-			"anuvyklack/middleclass",
-			"anuvyklack/animation.nvim",
+	use {{
+			'anuvyklack/windows.nvim',
+			requires = {
+				"anuvyklack/middleclass",
+				"anuvyklack/animation.nvim",
+			},
 		},
 		'xorid/swap-split.nvim',
 	}
@@ -201,7 +205,7 @@ return require("packer").startup(function(use)
 end)
 
 -- ERROR: Clangd cannot format with 4 space tab_width (lspconfig)
--- TODO: Config keymap for gitsign (remove <space>)
+-- WARNING: Color of cmp popup scrollbar can not change color
 
 -- INFO: Future plugins (consider later)
 -- Barbar

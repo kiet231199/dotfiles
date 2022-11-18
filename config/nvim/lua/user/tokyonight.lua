@@ -40,7 +40,6 @@ tokyonight.setup({
     -- @param colors ColorScheme
     on_highlights = function(hl, cl)
 		local black = "#000000"
-		local prompt = "#2d3149"
 		-- Common
 		hl.WinSeparator = { fg = cl.magenta, bold = true }
 		hl.LineNr = { fg = "#697094" }
