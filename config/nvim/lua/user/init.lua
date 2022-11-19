@@ -51,7 +51,6 @@ require("user.scrollview")
 require("user.smoothcursor")
 --
 require("user.notify")
-require("user.dressing")
 -- require("user.noice") -- Lazyloaded
 require("bqf").setup()
 require("user.whichkey")

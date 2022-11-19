@@ -39,6 +39,20 @@ local kind_icons = {
 	TypeParameter = "",
 }
 
+local kinds = {
+	nvim_lsp = "[LSP]",
+	nvim_lsp_document_symbols = "[Doc]",
+	luasnip = "[Snippet]",
+	buffer = "[Buffer]",
+	buffer_lines = "[Buffer]",
+	cmdline = "[Cmd]",
+	cmdline_history = "[History]",
+	path = "[Path]",
+	rg = "[RG]",
+	ctags = "[Ctags]",
+	env = "[Env]",
+}
+
 require("cmp").setup({
 	snippet = {
 		expand = function(args)
@@ -90,21 +104,11 @@ require("cmp").setup({
 		format = function(entry, vim_item)
 			-- Kind icons
 			vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-			vim_item.menu = ({
-				nvim_lsp = "[LSP]",
-				nvim_lsp_document_symbols = "[Doc]",
-				luasnip = "[Snippet]",
-				buffer = "[Buffer]",
-				buffer_lines = "[Buffer]",
-				cmdline = "[Cmd]",
-				cmdline_history = "[History]",
-				path = "[Path]",
-				rg = "[RG]",
-				ctags = "[Ctags]",
-				env = "[Env]",
-			})[entry.source.name]
+			vim_item.menu = (kinds)[entry.source.name]
 			vim_item.dup = ({	-- Remove duplicate in source
+				ctags = 0,
 				cmdline_history = 0,
+				rg = 0,
 			})[entry.source.name] or 0
 			local maxwidth = 40
 			vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
@@ -194,6 +198,10 @@ require("cmp").setup.cmdline(':', {
 	sources = require("cmp").config.sources({
 		{ name = 'cmdline', priority = 3 },
 		{ name = 'path', priority = 2 },
-		{ name = 'cmdline_history', priority = 1 },
+		{
+			name = 'cmdline_history',
+			priority = 1,
+			max_item_count = 3,
+		},
 	})
 })

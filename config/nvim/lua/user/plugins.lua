@@ -60,6 +60,7 @@ return require("packer").startup(function(use)
 	use {
 		'neovim/nvim-lspconfig',				                -- LSP config manager
 		'williamboman/mason.nvim',								-- LSP installer
+		'folke/neodev.nvim',									-- LSP config for lua dev
 		'https://git.sr.ht/~whynothugo/lsp_lines.nvim',			-- LSP line diagnostics
 		'lukas-reineke/lsp-format.nvim',						-- LSP formatter
 		'adoyle-h/lsp-toggle.nvim',								-- Enable/disable LSP
@@ -139,7 +140,6 @@ return require("packer").startup(function(use)
 	-- Better UI
 	use {
 		{ 'rcarriga/nvim-notify', tag = 'v3.8.0' }, 	   		-- Message popup
-		'stevearc/dressing.nvim',								-- Make popup better
 		{
 			'folke/noice.nvim', 								-- Show message popup, LSP progress, popup commandline
 			keys = { "", "<F2>" },
