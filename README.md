@@ -11,7 +11,7 @@
 - LSP highlighter: [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - LSP completion: [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 - LSP UI: [LspSaga](https://github.com/glepnir/lspsaga.nvim)
-- Fuzzy finer: [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- Fuzzy finder: [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - Float terminal: [vim-floaterm](https://github.com/voldikss/vim-floaterm)
 - Notice: [nvim-notify](https://github.com/rcarriga/nvim-notify)
 - Tabline: [tabline.nvim](https://github.com/kdheepak/tabline.nvim)
@@ -27,37 +27,40 @@
 - [x] Lazygit 0.35: [Binary prebuild](https://github.com/jesseduffield/lazygit/releases/download/v0.35/lazygit_0.35_Linux_x86_64.tar.gz)
 - [x] Finder 8.4.0: [Binary prebuild](https://github.com/sharkdp/fd/releases/download/v8.4.0/fd-v8.4.0-x86_64-unknown-linux-gnu.tar.gz)
 - [x] Fzf 0.34.0: [Binary prebuild](https://github.com/junegunn/fzf/releases/download/0.34.0/fzf-0.34.0-linux_arm64.tar.gz)
+- [x] Zsh 5.8: [Binary prebuild](https://github.com/romkatv/zsh-bin/releases/download/v6.1.1/zsh-5.8-linux-x86_64.tar.gz)
 - [x] Tmux-3.3a
 - [x] Universal Ctags 5.8
 - [x] Python 3.10.7 (with pip, pynvim and nvr)
 - [x] Nodejs 16.17.1 (with npm, neovim provider)
 
-# Installation
+# Installation (install.sh now is obsolete, and need to update)
 - Download above applications which has "Binary prebuild" tag and put it into tools directory.
 - Create a neovim directory like below.
 
 ```shell
 /path/to/your/
-└── neovim ($neovim)
+└── dotfiles ($dotfiles)
     ├── install.sh
     ├── config/ ($config)
-    │   ├── mason/
+    │   ├── mason/                  # Storing lSP
     │   │   ├── bin/
     │   │   │   └── pack.tar.bz2             
     │   │   └── packages/
     │   │       ├── pack_1.tar.bz2 
     │   │       ├── pack_2.tar.bz2   
     │   │       └── pack_3.tar.bz2  
-    │   ├── nvim/
+    │   ├── nvim/                   # Storing neovim configuration
     │   │   ├── init.lua
     │   │   └── lua/user/*.lua
-    │   └── pack/pack.tar.bz2
+    │   ├── pack/pack.tar.bz2       # Storing neovim plugins
+    │   ├── tmux/pack.tar.bz2       # Storing tmux plugins and configuration
+    │   └── zsh/pack.tar.bz2        # Storing zsh plugins and configuration
     └── tools ($tool)
         └── <package>.tar.bz2
 ```
 - Run install.sh and wait.
 ```bash
-cd /path/to/your/neovim
+cd /path/to/your/dotfiles
 ./install.sh
 ```
 
@@ -65,8 +68,8 @@ cd /path/to/your/neovim
 - Extract all below compressed files.
 
 ```bash
-# Assume that your neovim path like this: /home/kietpham/neovim/
-neovim=/home/kietpham/neovim/
+# Assume that your neovim path like this: /home/kietpham/dotfiles/
+dotfiles=/home/kietpham/dotfiles/
 config=$neovim/config
 tool=$neovim/tools
 
@@ -88,18 +91,12 @@ tar -xf pack_2.tar.bz2
 - Export binary file to **$PATH**, add these lines to your ~/.bashrc.
  
 ```bash
-# Remember to replace * with for version
-export PATH=$TOOLS/nvim-*/bin:$PATH
-export PATH=$TOOLS/ripgrep-*:$PATH
-export PATH=$TOOLS/node-*/bin:$PATH
-export PATH=$TOOLS/node-*/lib/node_modules/neovim/bin:$PATH
-export PATH=$TOOLS/clang+llvm-*/bin:$PATH
-export PATH=$TOOLS/fd-*/bin:$PATH
-export PATH=$TOOLS/python-*/bin:$PATH
+# Some SW have src/bin dir, some doesn't have, some even doesn't have a src dir.
 export PATH=$TOOLS:$PATH
-export PATH=$TOOLS/../config/mason/bin:$PATH
+export PATH=$TOOLS/<softwares>:$PATH
+export PATH=$TOOLS/<softwares>/bin:$PATH
 
-# Add neovim --remote
+# Add neovim --remote to your .bashrc and .zshrc (depend on your favorite shell)
 if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
     alias nvim=nvr -cc split --remote-wait +'set bufhidden=wipe'
 fi
@@ -116,31 +113,39 @@ fi
 - At home direcory, do some stuffs.
 
 ```bash
-# Assume that your neovim path like this: /home/kietpham/neovim/
+# Assume that your neovim path like this: /home/kietpham/dotfiles/
 # Link your config file to home
 cd $home
-ln -s /home/kietpham/neovim/config .config
+ln -s /home/kietpham/dotfiles/config/nvim .
 
 # Add pynvim and nvr provider to local lib
-mv /home/kietpham/neovim/tools/pynvim_package/* $home/.local
+mv /home/kietpham/dotfiles/tools/pynvim_package/* $home/.local
+
+# Move tmux packages to home
+cd $config
+mv tmux/* $home
+
+# Move zsh packages to home
+cd $config
+mv zsh/* $home
 ```
 
 - Modify path in some lua config file.
 
 ```lua
--- Assume that your neovim path like this: /home/kietpham/neovim/
+-- Assume that your neovim path like this: /home/kietpham/dotfiles/
 -- File $home/.config/nvim/init.lua
-let g:python3_host_prog = '/home/kietpham/neovim/tools/python-3.10.7/bin/python3'
-let g:node_host_prog = '/home/kietpham/neovim/tools/node-v16.17.1/lib/node_modules/neovim/bin/cli.js'
+let g:python3_host_prog = '/home/kietpham/dotfiles/tools/python-3.10.7/bin/python3'
+let g:node_host_prog = '/home/kietpham/dotfiles/tools/node-v16.17.1/lib/node_modules/neovim/bin/cli.js'
 
 -- File $home.config/nvim/lua/user/packer.lua
-g.nvim_profile_path = "/home/kietpham/neovim/config/nvim"
+g.nvim_profile_path = "/home/kietpham/dotfiles/config/nvim"
 
 -- File $home.config/nvim/lua/user/mason.lua
-install_root_dir = "/home/kietpham/neovim/config/mason"
+install_root_dir = "/home/kietpham/dotfiles/config/mason"
 
 -- File $home/.config/mason/packages/lua-language-server
-exec "/home/kietpham/neovim/config/mason/packages/..."
+exec "/home/kietpham/dotfiles/config/mason/packages/..."
 ```
 - After installation, run nvim will have some errors.
 ```lua
