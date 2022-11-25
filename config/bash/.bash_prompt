@@ -1,0 +1,88 @@
+#!/bin/bash
+__create_prompt() {
+    local EXIT="$?"                # This needs to be first
+    PS1=""
+
+	local FG_WHITE="\[\033[38;2;255;255;255m\]"
+	local FG_BLACK="\[\033[38;2;22;22;30m\]"
+	local BG_BLACK="\[\033[48;2;22;22;30m\]"
+
+	# Foreground color using ANSI escape
+	local FFG="\[\033[38;2;21;22;30m\]"
+	local SFG="\[\033[38;2;112;162;247m\]"
+	local TFG="\[\033[38;2;192;202;245m\]"
+	local FRFG="\[\033[38;2;112;162;247m\]"
+	local SRFG="\[\033[38;2;59;66;97m\]"
+	local TRFG="\[\033[38;2;31;34;49m\]"
+
+	# Background color using ANSI escape
+	local FBG="\[\033[48;2;112;162;247m\]"
+	local SBG="\[\033[48;2;59;66;97m\]"
+	local TBG="\[\033[48;2;31;34;49m\]"
+	local FRBG="\[\033[48;2;21;22;30m\]"
+	local SRBG="\[\033[48;2;112;162;247m\]"
+	local TRBG="\[\033[48;2;192;202;245m\]"
+
+	local RST="\[\033[0;00m\]"
+	local CLR="\[\033[0G\]\[$(tput el)\]"
+
+	local _SPR=""
+	local _SPL=""
+	local _SPTR="▓▒░"
+	local _SPTL="░▒▓"
+	local _TAIL=""
+
+	# OS Part
+	IP="$(hostname -I)" && local LAB=""
+	while IFS=' ' read -ra IPADDR; do for i in "${IPADDR[@]}"; do LAB=$(echo $i | cut -d . -f 4); done; done <<< "$IP"
+	LAB_LEN=${#LAB}
+	LAB="$FRFG$FRBG$_SPTL$FFG$FBG  $LAB $FRFG$SBG$_SPR"
+
+	# Dir Part
+	DIR="${PWD/#$HOME/\~}" && local GIT="$(__git_ps1)"
+	DIR_LEN=${#DIR}
+	GIT_LEN=${#GIT}
+	LOCATION_LEN=$((LAB_LEN+DIR_LEN+GIT_LEN+23))
+	local TIME_LEN=22
+	MAX_LOCATION_LEN=$((COLUMNS-TIME_LEN-1))
+
+	if [[ $DIR == *"~"* ]]; then DIR="  $DIR"; else DIR="  $DIR"; fi
+	if [ ! -z $(__git_ps1) ]; then
+		DIR="$SFG$SBG$DIR $SRFG$TBG$_SPR"
+		GIT="$TFG$TBG  on $(__git_ps1) $TRFG$BG_BLACK$_SPR$RST "
+	else 
+		LOCATION_LEN=$((LOCATION_LEN-11))
+		DIR="$SFG$SBG$DIR $SRFG$BG_BLACK$_SPR$RST "
+	fi
+
+	if [ $EXIT != 0 ]; then
+		local STATUS="$SRFG$BG_BLACK$_SPL$SFG$SBG  "
+	else
+		local STATUS="$SRFG$BG_BLACK$_SPL$SFG$SBG  "
+	fi
+
+	local PS_LOCATION="\[\033[0G\]$LAB$DIR$GIT$RST"
+	local PS_TIME="\[\033[$(($COLUMNS-$TIME_LEN))G\] $STATUS$FRFG$SBG$_SPL$FFG$FBG  \D{%d/%m/%Y} $FRFG$FRBG$_SPTR$RST"
+	local PS_USER="$FG_BLACK$TBG$_TAIL$TFG$TBG  \A   \u \$ $TRFG$BG_BLACK$_SPR$SFG$BG_BLACK $RST "
+
+	LINE=$((LOCATION_LEN/COLUMNS))
+	MOD=$((LOCATION_LEN-COLUMNS*LINE))
+	DRAW_LINE=`printf "\033[38;2;112;162;247m%.s─\033[0;00m" $(seq 1 $(tput cols))`
+	PS_FILL="${DRAW_LINE}$RST"
+	PS_FILL_LOCATION="$(tput sc)$(tput cud $LINE)${DRAW_LINE}$(tput rc)$RST"
+	if [ $LOCATION_LEN -gt $COLUMNS ]; then
+		if [ $MOD -gt $MAX_LOCATION_LEN ]; then
+	 		PS1="$CLR${debian_chroot:+($debian_chroot)}${PS_FILL_LOCATION}${PS_LOCATION}\n${PS_FILL}${PS_TIME}\n$PS_USER"
+		else
+	 		PS1="$CLR${debian_chroot:+($debian_chroot)}${PS_FILL_LOCATION}${PS_LOCATION}${PS_TIME}\n$PS_USER"
+		fi
+	else
+		if [ $LOCATION_LEN -gt $MAX_LOCATION_LEN ]; then
+	 		PS1="$CLR${debian_chroot:+($debian_chroot)}${PS_FILL}${PS_LOCATION}\n${PS_FILL}${PS_TIME}\n$PS_USER"
+		else
+	 		PS1="$CLR${debian_chroot:+($debian_chroot)}${PS_FILL}${PS_LOCATION}${PS_TIME}\n$PS_USER"
+		fi
+	fi
+}
+
+PROMPT_COMMAND=__create_prompt
