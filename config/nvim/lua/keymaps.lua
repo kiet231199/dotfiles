@@ -110,7 +110,7 @@ keymap ("", "<F5>", ":NvimTreeFindFileToggle<CR>", opts)
 keymap ("", "<F8>", ":FloatermToggle<CR>", opts)
 
 -- Session
-keymap ("", "sl", ':SessionManager load_last_session<CR>:lua require("notify")("Welcome back: Kiet Pham ﱃ ", "info",{title = "Load session  "})<CR>:noh<CR>', { noremap = false, silent = true })
+keymap ("", "sl", ':SessionManager load_last_session<CR>', { noremap = false, silent = true })
 keymap ("", "ss", ':SessionManager save_current_session<CR>:lua require("notify")("Session is saved to your SessionManager  ", "info",{title = "Save session  "})<CR>:noh<CR>', { noremap = false, silent = true })
 keymap ("", "sd", ':SessionManager delete_session<CR>', { noremap = false, silent = true })
 

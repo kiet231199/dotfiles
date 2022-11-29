@@ -54,21 +54,21 @@ gitsigns.setup({
 		end
 
 		-- Navigation
-		map('n', ']c', function()
+		map('n', '<space>hn', function()
 		if vim.wo.diff then return ']c' end
 			vim.schedule(function() gs.next_hunk() end)
 			return '<Ignore>'
 		end, {expr=true})
 
-		map('n', '[c', function()
+		map('n', '<space>hp', function()
 			if vim.wo.diff then return '[c' end
 			vim.schedule(function() gs.prev_hunk() end)
 			return '<Ignore>'
 		end, {expr=true})
 
 		-- Navigation
-		map('n', '<space>hn', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", {expr=true})
-		map('n', '<space>hp', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", {expr=true})
+		-- map('n', '<space>hn', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", {expr=true})
+		-- map('n', '<space>hp', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", {expr=true})
 
 		-- Actions
 		map({'n', 'v'}, '<space>hs', ':Gitsigns stage_hunk<CR>')

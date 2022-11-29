@@ -78,7 +78,14 @@ lualine.setup({
 				},
 				symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '},
 				colored = true,           -- Displays diagnostics status in color if set to true.
-				always_visible = true,    -- Show diagnostics even if there are none.
+				always_visible = function()
+					local winwidth = vim.fn.winwidth(0)
+					if winwidth > 100 then
+						return true
+					else
+						return false
+					end
+				end,    -- Show diagnostics even if there are none.
 				separator = { left = '', right = ''},
 			},
 		},

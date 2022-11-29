@@ -6,7 +6,7 @@ end
 
 mason.setup({
     -- The directory in which to install packages.
-    install_root_dir = "/data4/kietpham/00_nvim/config/mason",
+    install_root_dir = "/data4/kietpham/00_dot/config/mason",
     ui = {
         check_outdated_packages_on_open = false,
         border = "rounded",

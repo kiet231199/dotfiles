@@ -20,10 +20,10 @@ nvim_tree.setup({
 	sort_by = "name",
 	remove_keymaps = true, -- boolean (disable totally or not) or list of key (lhs)
 	view = {
-		float = { 
-			enable = true,
+		float = {
+			enable = false,
 			open_win_config = {
-				relative = "cursor",
+				relative = "editor",
 				border = "rounded",
 				width = 50,
 				height = 60,
@@ -31,7 +31,7 @@ nvim_tree.setup({
 				col = 1,
 			}
 		},
-		adaptive_size = false,
+		adaptive_size = true,
 		centralize_selection = false,
 		width = 50,
 		-- height = 30,
@@ -159,7 +159,7 @@ nvim_tree.setup({
 	},
 	filters = {
 		dotfiles = false,
-		custom = {},
+		custom = { "*.o", "*.lo" },
 		exclude = {},
 	},
 	filesystem_watchers = {

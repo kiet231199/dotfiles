@@ -2,7 +2,7 @@ local vim = vim
 local opt = vim.opt
 local g   = vim.g
 
-g.nvim_profile_path = "/data4/kietpham/00_nvim/config/"
+g.nvim_profile_path = "/data4/kietpham/00_dot/config/"
 opt.runtimepath:append(g.nvim_profile_path)
 opt.packpath = g.nvim_profile_path
 
