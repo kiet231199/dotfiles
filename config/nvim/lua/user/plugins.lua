@@ -94,7 +94,8 @@ return require("packer").startup(function(use)
 	-- Snippet
 	use {
 		'L3MON4D3/LuaSnip',										-- Snippet for LSP
-		'saadparwaiz1/cmp_luasnip',								-- Completion for luasnip
+		'saadparwaiz1/cmp_luasnip',
+		'doxnit/cmp-luasnip-choice',								-- Completion for luasnip
 	}
 
 	-- Highlighter

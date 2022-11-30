@@ -44,6 +44,7 @@ local kinds = {
 	nvim_lsp_document_symbols = "[Doc]",
 	luasnip = "[Snippet]",
 	buffer = "[Buffer]",
+	luasnip_choice = "[Snippet]",
 	buffer_lines = "[Buffer]",
 	cmdline = "[Cmd]",
 	cmdline_history = "[History]",
@@ -84,21 +85,21 @@ require("cmp").setup({
 		["<C-Space>"] = require("cmp").mapping(require("cmp").mapping.complete(), { "i", "c" }),
 		-- Accept currently selected item. If none selected, `select` first item.
 		-- Set `select` to `false` to only confirm explicitly selected items.
-		["<CR>"] = require("cmp").mapping.confirm({ select = true }),
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
+		["<CR>"] = require("cmp").mapping.confirm(),
+		["<Tab>"] = require("cmp").mapping(function(fallback)
+			if require("cmp").visible() then
+				require("cmp").select_next_item()
 			elseif luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
 			elseif has_words_before() then
-				cmp.complete()
+				require("cmp").complete()
 			else
 				fallback()
 			end
 		end, { "i", "s" }),
-		["<S-Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
+		["<S-Tab>"] = require("cmp").mapping(function(fallback)
+			if require("cmp").visible() then
+				require("cmp").select_prev_item()
 			elseif luasnip.jumpable(-1) then
 				luasnip.jump(-1)
 			else
@@ -125,6 +126,7 @@ require("cmp").setup({
 	},
 	sources = require("cmp").config.sources({
 		{ name = "luasnip", option = { show_autosnippets = true }, priority = 9 },
+		{ name = "luasnip_choice", priority = 9 },		
 		{ name = "nvim_lsp", priority = 8 },
 		{ name = "nvim_lsp_signature_help", priority = 8 },
 		{ name = "buffer", priority = 7 },
@@ -213,3 +215,5 @@ require("cmp").setup.cmdline(':', {
 		},
 	})
 })
+
+require('cmp_luasnip_choice').setup({ auto_open = true });
