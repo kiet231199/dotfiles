@@ -60,4 +60,4 @@ jabs.setup({
     use_devicons = true -- true or false. Default true
 })
 
-vim.keymap.set("n", "<Tab>", ":JABSOpen<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<F3>", ":JABSOpen<CR>", { noremap = true, silent = true })

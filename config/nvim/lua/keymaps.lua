@@ -9,7 +9,7 @@ local keymap = vim.keymap.set
 vim.cmd [[let mapleader=',']]
 -- ========================================== Function key ==========================================
 -- <F2> for Noice
--- <F3>
+-- <F3> forr JABS
 -- <F4> for CodeWindow
 -- <F5> for Explorer
 -- <F6> for Outline

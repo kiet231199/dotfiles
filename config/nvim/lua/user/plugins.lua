@@ -37,7 +37,7 @@ return require("packer").startup(function(use)
 		'kdheepak/lazygit.nvim',   		 						-- Lazygit
 		{ 'sindrets/diffview.nvim', commit = '03deb5' },		-- Git diff
 		'akinsho/git-conflict.nvim',							-- Solve conflict faster
-		'tanvirtin/vgit.nvim',									-- Visual git
+		-- 'tanvirtin/vgit.nvim',								-- Visual git
 	}
 
 	-- Fuzzy finder
@@ -199,6 +199,7 @@ return require("packer").startup(function(use)
 
 	-- Test
 	use 'petertriho/nvim-scrollbar'
+	use 'abecodes/tabout.nvim'									-- Tabout of bracket
 
 	-- Icon source (need to be placed at the end)
     use 'ryanoasis/vim-devicons'
