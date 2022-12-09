@@ -1,4 +1,11 @@
 #!/bin/bash
+
+__get_new_line() {
+	number=$1
+    for i in `seq $number`; do echo -e ""; done
+	tput cuu $((number))
+}
+
 __create_prompt() {
     local EXIT="$?"                # This needs to be first
     PS1=""
@@ -71,6 +78,7 @@ __create_prompt() {
 	PS_FILL="${DRAW_LINE}$RST"
 	PS_FILL_LOCATION="$(tput sc)$(tput cud $LINE)${DRAW_LINE}$(tput rc)$RST"
 	if [ $LOCATION_LEN -gt $COLUMNS ]; then
+		__get_new_line $LINE
 		if [ $MOD -gt $MAX_LOCATION_LEN ]; then
 	 		PS1="$CLR${debian_chroot:+($debian_chroot)}${PS_FILL_LOCATION}${PS_LOCATION}\n${PS_FILL}${PS_TIME}\n$PS_USER"
 		else
