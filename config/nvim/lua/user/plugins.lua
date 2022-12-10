@@ -206,7 +206,6 @@ return require("packer").startup(function(use)
 	use 'kyazdani42/nvim-web-devicons'
 end)
 
--- ERROR: Clangd cannot format with 4 space tab_width (lspconfig)
 -- WARNING: Color of cmp popup scrollbar can not change color
 
 -- INFO: Future plugins (consider later)
