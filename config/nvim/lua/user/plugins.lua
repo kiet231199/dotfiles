@@ -197,9 +197,10 @@ return require("packer").startup(function(use)
 	-- Minmap
 	use 'gorbit99/codewindow.nvim'								-- Minimap window
 
+	-- Cursor jump
+	use 'abecodes/tabout.nvim'									-- Tabout of bracket
 	-- Test
 	use 'petertriho/nvim-scrollbar'
-	use 'abecodes/tabout.nvim'									-- Tabout of bracket
 
 	-- Icon source (need to be placed at the end)
     use 'ryanoasis/vim-devicons'

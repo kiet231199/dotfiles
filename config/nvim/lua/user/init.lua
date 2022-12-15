@@ -73,7 +73,8 @@ require("user.sessions")
 --
 require("user.codewindow")
 --
-require("user.ssr")
 require("user.tabout")
+--
+require("user.ssr")
 --
 require("user.highlight")
