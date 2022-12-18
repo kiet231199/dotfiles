@@ -25,5 +25,5 @@ tabout.setup({
     exclude = {} -- tabout will ignore these filetypes
 })
 
-vim.api.nvim_set_keymap('i', '<Tab>', "<Plug>(Tabout)", {silent = true})
-vim.api.nvim_set_keymap('i', '<S-Tab>', "<Plug>(TaboutBack)", {silent = true})
+vim.api.nvim_set_keymap('i', '<C-l>', "<Plug>(Tabout)", {silent = true})
+vim.api.nvim_set_keymap('i', '<C-h>', "<Plug>(TaboutBack)", {silent = true})

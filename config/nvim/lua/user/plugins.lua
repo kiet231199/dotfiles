@@ -1,4 +1,4 @@
-vim.cmd [[packadd packer.nvim]]
+vim.cmd 'packadd packer.nvim'
 -- Highlight yank
 vim.api.nvim_create_autocmd("TextYankPost", {
 	command = "silent! lua vim.highlight.on_yank({ timeout = 500 })",
@@ -95,7 +95,7 @@ return require("packer").startup(function(use)
 	use {
 		'L3MON4D3/LuaSnip',										-- Snippet for LSP
 		'saadparwaiz1/cmp_luasnip',
-		'doxnit/cmp-luasnip-choice',								-- Completion for luasnip
+		'doxnit/cmp-luasnip-choice',							-- Completion for luasnip
 	}
 
 	-- Highlighter
@@ -185,7 +185,7 @@ return require("packer").startup(function(use)
 		'itchyny/vim-cursorword',								-- Underline word undercursor
 		'lukas-reineke/indent-blankline.nvim',					-- Indentline
 		'anuvyklack/pretty-fold.nvim',							-- Fold text
-		'nvim-zh/colorful-winsep.nvim',							-- Win separator
+        { 'nvim-zh/colorful-winsep.nvim', commit = 'bb06c86' },-- Win separator 
 		'folke/zen-mode.nvim',									-- Focus on function
 		'folke/twilight.nvim',
 	}
@@ -197,9 +197,11 @@ return require("packer").startup(function(use)
 	-- Minmap
 	use 'gorbit99/codewindow.nvim'								-- Minimap window
 
-	-- Cursor jump
-	use 'abecodes/tabout.nvim'									-- Tabout of bracket
+	-- Tab
+	use 'abecodes/tabout.nvim'	        						-- Tabout of bracket
+
 	-- Test
+	use 'trmckay/based.nvim'
 	use 'petertriho/nvim-scrollbar'
 
 	-- Icon source (need to be placed at the end)
@@ -207,6 +209,7 @@ return require("packer").startup(function(use)
 	use 'kyazdani42/nvim-web-devicons'
 end)
 
+-- ERROR: Clangd cannot format with 4 space tab_width (lspconfig)
 -- WARNING: Color of cmp popup scrollbar can not change color
 
 -- INFO: Future plugins (consider later)
