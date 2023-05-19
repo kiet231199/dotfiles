@@ -45,11 +45,13 @@ __create_prompt() {
 	LAB_LEN=${#LAB}
 	LAB="$FRFG$FRBG$_SPTL$FFG$FBG  $LAB $FRFG$SBG$_SPR"
 
-	# Dir Part
+	# Dir Part (left)
 	DIR="${PWD/#$HOME/\~}" && local GIT="$(__git_ps1)"
 	DIR_LEN=${#DIR}
 	GIT_LEN=${#GIT}
 	LOCATION_LEN=$((LAB_LEN+DIR_LEN+GIT_LEN+23))
+
+	# TIme Part (right)
 	local TIME_LEN=22
 	MAX_LOCATION_LEN=$((COLUMNS-TIME_LEN-1))
 
@@ -77,6 +79,8 @@ __create_prompt() {
 	DRAW_LINE=`printf "\033[38;2;112;162;247m%.s─\033[0;00m" $(seq 1 $(tput cols))`
 	PS_FILL="${DRAW_LINE}$RST"
 	PS_FILL_LOCATION="$(tput sc)$(tput cud $LINE)${DRAW_LINE}$(tput rc)$RST"
+
+
 	if [ $LOCATION_LEN -gt $COLUMNS ]; then
 		__get_new_line $LINE
 		if [ $MOD -gt $MAX_LOCATION_LEN ]; then
