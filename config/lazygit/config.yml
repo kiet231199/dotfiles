@@ -1,4 +1,25 @@
+gui:
+  theme:
+    activeBorderColor:
+      - "#70A2F7"
+      - bold
+    inactiveBorderColor:
+      - white
+    optionsTextColor:
+      - blue
+    selectedLineBgColor:
+      - blue # set to `default` to have no background colour
+    selectedRangeBgColor:
+      - blue
+    cherryPickedCommitBgColor:
+      - cyan
+    cherryPickedCommitFgColor:
+      - blue
+    unstagedChangesColor:
+      - red
+    defaultFgColor:
+      - default
 git:
   paging:
     colorArg: always
-    pager: delta --dark --paging=never
+    pager: delta --dark --paging=never --true-color=never
