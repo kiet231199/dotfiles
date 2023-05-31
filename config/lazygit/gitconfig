@@ -1,53 +1,53 @@
 [user]
-    email = kiet.pham.xb@renesas.com
-    name = Kiet Pham
+	email = kiet.pham.xb@renesas.com
+	name = Kiet Pham
 [safe]
-    directory = *
-; [core]
-;     pager = less
+	directory = *
 
 ; Config for delta git diff
 [pager]
-    diff    = LESS=eXFR delta
-    show    = LESS=eXFR delta
-    log     = LESS=eXFR delta
-    reflog  = LESS=eXFR delta
-    status  = LESS=eXFR delta
-    blame   = LESS=eXFR delta
+	diff    = delta
+    show    = delta
+    log     = delta
+    reflog  = delta
+    status  = delta
+	blame   = delta
 [interactive]
-    diffFilter = delta --dark --color-only
+	diffFilter = delta --dark --color-only
 [delta]
     navigate = true    # use n and N to move between diff sections
-    true-color = always
-    side-by-side = true
+	relative-paths = true
+	true-color = always
+	pager = less -XFRS
+	; side-by-side = true
 
-    file-decoration-style = none
-    file-added-label = []
-    file-copied-label = [❌]
-    file-modified-label = []
-    file-removed-label = []
-    file-renamed-label = []
-    file-style = bold ul "#C9D90A #000000"
+	file-decoration-style = none
+	file-added-label = []
+	file-copied-label = [❌]
+	file-modified-label = []
+	file-removed-label = []
+	file-renamed-label = []
+	file-style = bold ul "#C9D90A #000000"
 
-    hunk-header-decoration-style = none
-    hunk-header-file-style = bold ul "#03a4ff"
-    hunk-header-line-number-style = bold ul "#03a4ff"
-    hunk-header-style = file line-number
+	hunk-header-decoration-style = none
+	hunk-header-file-style = bold ul "#03a4ff"
+	hunk-header-line-number-style = bold ul "#03a4ff"
+	hunk-header-style = file line-number
 
-    line-numbers = true
-    ; remove part
-    line-numbers-left-format = "{nm:>4}│ "
-    line-numbers-left-style = "#666C8E"
-    line-numbers-minus-style = bold "#D54040"
-    ; add part
-    line-numbers-right-format = "{np:>4}│ "
-    line-numbers-right-style = "#666C8E"
-    line-numbers-plus-style = bold "#609270"
-    ; zero part
-    line-numbers-zero-style = "#666C8E"
+	line-numbers = true
+	; remove part
+	line-numbers-left-format = "{nm:>4}│ "
+	line-numbers-left-style = "#666C8E"
+	line-numbers-minus-style = bold "#D54040"
+	; add part
+	line-numbers-right-format = "{np:>4}│ "
+	line-numbers-right-style = "#666C8E"
+	line-numbers-plus-style = bold "#609270"
+	; zero part
+	line-numbers-zero-style = "#666C8E"
 
-    minus-style = "black #D54040"
-    minus-emph-style = bold "black #F84546"
+	minus-style = "black #D54040"
+	minus-emph-style = bold "black #F84546"
 
-    plus-style = "black #609270"
-    plus-emph-style = bold "black #63B279"
+	plus-style = "black #609270"
+	plus-emph-style = bold "black #63B279"
