@@ -862,7 +862,7 @@
   typeset -g POWERLEVEL9K_LOAD_CRITICAL_FOREGROUND='#70A2F7'
   typeset -g POWERLEVEL9K_LOAD_CRITICAL_BACKGROUND='#292E42'
   # Custom icon.
-  typeset -g POWERLEVEL9K_LOAD_VISUAL_IDENTIFIER_EXPANSION='% '
+  typeset -g POWERLEVEL9K_LOAD_VISUAL_IDENTIFIER_EXPANSION='% 󰄧'
 
   ################[ todo: todo items (https://github.com/todotxt/todo.txt-cli) ]################
   # Todo color.
@@ -961,7 +961,7 @@
   # Custom icon.
   # typeset -g POWERLEVEL9K_CONTEXT_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
-  typeset -g POWERLEVEL9K_CONTEXT_PREFIX='  user '
+  typeset -g POWERLEVEL9K_CONTEXT_PREFIX=' user '
 
   ###[ virtualenv: python virtual environment (https://docs.python.org/3/library/venv.html) ]###
   # Python virtual environment color.
@@ -1636,7 +1636,7 @@
   # Run `ifconfig` or `ip -4 a show` to see the names of all network interfaces.
   typeset -g POWERLEVEL9K_IP_INTERFACE='[ew].*'
   # Custom icon.
-  # typeset -g POWERLEVEL9K_IP_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_IP_VISUAL_IDENTIFIER_EXPANSION='󰒋'
 
   #########################[ proxy: system-wide http/https/ftp proxy ]##########################
   # Proxy color.
@@ -1709,7 +1709,7 @@
   # Type `p10k help segment` for documentation and a more sophisticated example.
   function prompt_example() {
     # p10k segment -b 1 -f 3 -i '⭐' -t 'hello, %n'
-    p10k segment -b 1 -f 3 -i '祥at' -t '%D{%H:%M}'
+    p10k segment -b 1 -f 3 -i '󰄉 at' -t '%D{%H:%M}'
   }
 
   # User-defined prompt segments may optionally provide an instant_prompt_* function. Its job
