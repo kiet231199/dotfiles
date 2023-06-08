@@ -1,6 +1,9 @@
 # Git remove file permanently
 git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch <filename>' --prune-empty --tag-name-filter cat -- --all
 
+# Git tar nvim plugins quickly
+tar cjf pack1.tar.bz2 `ls | grep "\.nvim"` && tar cjf pack2.tar.bz2 `ls | grep "nvim-"` && tar cjf pack3.tar.bz2 `ls | egrep -v "\.nvim|nvim-|bz2"`
+
 # Git remove autocrlf
 git config --local core.autocrlf false
 
