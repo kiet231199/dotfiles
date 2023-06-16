@@ -1,0 +1,33 @@
+Windows Registry Editor Version 5.00
+
+; when you right click a file
+[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\VSCode]
+@="Open with VS Code"
+"Icon"="C:\\Program Files\\Microsoft VS Code\\Code.exe,0"
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\VSCode\command]
+@="\"C:\\Program Files\\Microsoft VS Code\\Code.exe\" \"%1\""
+
+; when you right click a folder
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\shell\VSCode]
+@="Open Folder in VS Code"
+"Icon"="C:\\Program Files\\Microsoft VS Code\\Code.exe,0"
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\shell\VSCode\command]
+@="\"C:\\Program Files\\Microsoft VS Code\\Code.exe\" \"%1\""
+
+; when you right click a folder while holding shift
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\Background\shell\VSCode]
+@="Open Folder in VS Code"
+"Icon"="C:\\Program Files\\Microsoft VS Code\\Code.exe,0"
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\Background\shell\VSCode\command]
+@="\"C:\\Program Files\\Microsoft VS Code\\Code.exe\" \"%V\""
+
+; when you right click the background, not on a particular file or folder.
+[HKEY_CURRENT_USER\SOFTWARE\Classes\LibraryFolder\Background\shell\VSCode]
+@="Open Folder in VS Code"
+"Icon"="C:\\Program Files\\Microsoft VS Code\\Code.exe,0"
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\LibraryFolder\Background\shell\VSCode\command]
+@="\"C:\\Program Files\\Microsoft VS Code\\Code.exe\" \"%V\""

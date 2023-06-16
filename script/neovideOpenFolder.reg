@@ -1,0 +1,9 @@
+Windows Registry Editor Version 5.00
+
+; when you right click a file
+[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\neovide]
+@="Open with Neovide"
+"Icon"="D:\\nvim\\nvim-win64\\bin\\neovide.exe,0"
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\neovide\command]
+@="\"D:\\nvim\\nvim-win64\\bin\\neovide.exe\" \"%1\""
