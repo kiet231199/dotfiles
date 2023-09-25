@@ -119,5 +119,6 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # User environments
+setopt nonomatch
 source ~/.bash_aliases
 bindkey "^o" autosuggest-accept

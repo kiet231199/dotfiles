@@ -12,6 +12,7 @@
     reflog  = delta
     status  = delta
 	blame   = delta
+	branch  = delta
 [interactive]
 	diffFilter = delta --dark --color-only
 [delta]
@@ -46,6 +47,14 @@
 	; zero part
 	line-numbers-zero-style = "#666C8E"
 
+	; minus-style = "#E55050 black"
+	; minus-emph-style = bold "#F84546 black"
+	;
+	; plus-style = "#60C270 black"
+	; plus-emph-style = bold "#63B279 black"
+	; keep-plus-minus-markers = true
+
+; Reverse color
 	minus-style = "black #D54040"
 	minus-emph-style = bold "black #F84546"
 
