@@ -58,21 +58,21 @@ __create_prompt() {
 	if [[ $DIR == *"~"* ]]; then DIR="  $DIR"; else DIR="  $DIR"; fi
 	if [ ! -z $(__git_ps1) ]; then
 		DIR="$SFG$SBG$DIR $SRFG$TBG$_SPR"
-		GIT="$TFG$TBG  on $(__git_ps1) $TRFG$BG_BLACK$_SPR$RST "
-	else 
+		GIT="$TFG$TBG  on $(__git_ps1) $RST$TRFG$_SPR$RST "
+	else
 		LOCATION_LEN=$((LOCATION_LEN-11))
-		DIR="$SFG$SBG$DIR $SRFG$BG_BLACK$_SPR$RST "
+		DIR="$SFG$SBG$DIR $RST$SRFG$_SPR$RST "
 	fi
 
 	if [ $EXIT != 0 ]; then
-		local STATUS="$SRFG$BG_BLACK$_SPL$SFG$SBG  "
+		local STATUS="$RST$SRFG$_SPL$SFG$SBG  "
 	else
-		local STATUS="$SRFG$BG_BLACK$_SPL$SFG$SBG  "
+		local STATUS="$RST$SRFG$_SPL$SFG$SBG  "
 	fi
 
 	local PS_LOCATION="\[\033[0G\]$LAB$DIR$GIT$RST"
 	local PS_TIME="\[\033[$(($COLUMNS-$TIME_LEN))G\] $STATUS$FRFG$SBG$_SPL$FFG$FBG  \D{%d/%m/%Y} $FRFG$FRBG$_SPTR$RST"
-	local PS_USER="$FG_BLACK$TBG$_TAIL$TFG$TBG 󰄉 \A   \u \$ $TRFG$BG_BLACK$_SPR$SFG$BG_BLACK $RST "
+	local PS_USER="$FG_BLACK$TBG$_TAIL$TFG$TBG 󰄉 \A   \u \$ $RST$TRFG$_SPR$SFG  $RST"
 
 	LINE=$((LOCATION_LEN/COLUMNS))
 	MOD=$((LOCATION_LEN-COLUMNS*LINE))
