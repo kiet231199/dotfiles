@@ -1,0 +1,46 @@
+onboarding = false
+terminal.default_shell = "zsh"
+
+[theme]
+name = "terminal"
+auto_switch = false
+
+[ui]
+status_indicators = "symbols"
+show_agent_labels_on_pane_borders = true
+
+[ui.toast]
+delivery = "terminal"
+
+[ui.sound]
+enabled = false
+
+[keys]
+rename_tab = "prefix+,"
+split_vertical = "prefix+%"
+split_horizontal = "prefix+\""
+
+# Herdr-annotation
+[[keys.command]]
+key = "prefix+a"
+type = "plugin_action"
+command = "annotate.capture"
+description = "annotate text"
+
+[[keys.command]]
+key = "prefix+o"
+type = "plugin_action"
+command = "annotate.open"
+description = "review documents in this folder"
+
+[[keys.command]]
+key = "prefix+shift+o"
+type = "plugin_action"
+command = "annotate.last"
+description = "review the agent's last reply"
+
+[[keys.command]]
+key = "prefix+e"
+type = "plugin_action"
+command = "herdr-sidebar.open-sidebar"
+description = "toggle sidebar"

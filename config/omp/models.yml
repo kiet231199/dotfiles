@@ -1,0 +1,49 @@
+﻿providers:
+  ai-box-cache:
+    baseUrl: https://api.ai-box.vn
+    apiKey: sk-apikey
+    api: anthropic-messages
+    auth: apiKey
+    disableStrictTools: true
+    models:
+      - id: qwen3.8-flash
+        name: Qwen-3.8-Flash
+        reasoning: true
+        input: [text]
+        contextWindow: 320000
+        maxTokens: 32000
+      - id: qwen3.8-max-0902.
+        name: Qwen-3.8-Max
+        contextWindow: 160000
+        maxOutputTokens: 16000
+        vision: true
+  aibox-non-cache:
+    baseUrl: https://api.ai-box.vn/v1
+    api: openai-completions
+    apiKey: sk-apikey
+    models:
+      - id: kimi/kimi-k3
+        name: Kimi K3
+        contextWindow: 160000
+        maxOutputTokens: 16000
+        vision: false
+      - id: ds/deepseek-flash
+        name: DeepSeek-V4-Flash
+        contextWindow: 320000
+        maxOutputTokens: 32000
+        vision: false
+      - id: ds/deepseek-v4-pro
+        name: DeepSeek-V4-Pro
+        contextWindow: 160000
+        maxOutputTokens: 16000
+        vision: false
+      - id: zai-org/glm-5.3-flash
+        name: GLM-5.3-Flash
+        contextWindow: 320000
+        maxOutputTokens: 32000
+        vision: true
+      - id: ZHIPU/GLM-5.3
+        name: GLM-5.3
+        contextWindow: 160000
+        maxOutputTokens: 16000
+        vision: false

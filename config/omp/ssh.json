@@ -1,0 +1,10 @@
+{
+  "hosts": {
+    "lab100": {
+      "host": "10.231.21.100",
+      "username": "kietpham",
+      "port": 22,
+      "description": "LabPC 100"
+    }
+  }
+}

@@ -1,0 +1,120 @@
+symbolPreset: nerd
+composer:
+  shape: claude
+theme:
+  dark: dark-tokyo-night
+  light: dark-tokyo-night
+setupVersion: 2
+colorBlindMode: false
+statusLine:
+  preset: custom
+  transparent: false
+  compactThinkingLevel: true
+  sessionAccent: false
+  separator: powerline-thin
+  contextLine: annotated
+  leftSegments:
+    - pi
+    - model
+    - mode
+    - path
+    - git
+    - collab
+    - subagents
+  rightSegments:
+    - token_in
+    - token_out
+    - cache_hit
+    - context_pct
+  segmentOptions:
+    path:
+      abbreviate: true
+      maxLength: 40
+      stripWorkPrefix: true
+    git:
+      showBranch: true
+      showStaged: true
+      showUnstaged: true
+      showUntracked: true
+terminal:
+  showProgress: true
+tui:
+  textSizing: false
+  tight: false
+defaultThinkingLevel: auto
+hideThinkingBlock: true
+commands:
+  enableOpencodeUser: false
+  enableOpencodeProject: false
+display:
+  cacheMissMarker: true
+  showTokenUsage: true
+steeringMode: one-at-a-time
+modelRoles:
+  plan: ai-box/qwen3.8-max-0902.:auto
+  commit: ai-box/deepseek-v4-flash-0731:auto
+  default: ai-box-cache/qwen3.8-flash
+  advisor: aibox-non-cache/zai-org/glm-5.3-flash:max
+  smol: aibox-non-cache/zai-org/glm-5.3-flash:auto
+provider:
+  appendOnlyContext: "on"
+compaction:
+  methodOrder:
+    - remote
+    - snapcompact
+    - shake
+    - handoff
+    - soft
+  keepRecentTokens: 16000
+  thresholdPercent: -1
+  thresholdTokens: 150000
+  enabled: true
+  midTurnEnabled: true
+  handoffSaveToDisk: false
+  idleEnabled: true
+tools:
+  artifactSpillThreshold: 32
+  artifactHeadBytes: 8
+  artifactTailBytes: 8
+  artifactTailLines: 200
+read:
+  defaultLimit: 300
+  renderMarkdown: false
+task:
+  maxConcurrency: 6
+  agentIdleTtlMs: 120000
+async:
+  maxJobs: 20
+providers:
+  cacheRetention: long
+startup:
+  quiet: false
+autolearn:
+  enabled: false
+edit:
+  mode: hashline
+bash:
+  enabled: true
+retry:
+  modelFallback: false
+error:
+  notify: "on"
+magicKeywords:
+  workflow: false
+  ultrathink: true
+computer:
+  enabled: false
+mcp:
+  renderMarkdownResults: true
+omitThinking: true
+proseOnlyThinking: true
+cycleOrder:
+  - smol
+  - default
+  - slow
+dev:
+  autoqaConsent: granted
+disabledProviders:
+  - ollama
+  - llama.cpp
+  - lm-studio

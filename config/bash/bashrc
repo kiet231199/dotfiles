@@ -118,3 +118,5 @@ fi
 
 shopt -s direxpand
 umask a+rx u+rwx
+
+export PATH="~/.local/bin:$PATH"
