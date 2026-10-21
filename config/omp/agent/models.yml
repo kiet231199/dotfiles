@@ -1,0 +1,79 @@
+﻿providers:
+  gen-ai-claude:
+    baseUrl: BaseUrl
+    apiKey: Token
+    api: anthropic-messages
+    auth: apiKey
+    disableStrictTools: true
+    compat:
+      supportsContextManagement: false
+    models:
+      - id: databricks-claude-opus-5-5
+        name: Claude-Opus-5.5
+        reasoning: true
+        contextWindow: 160000
+        maxOutputTokens: 16000
+        thinking:
+          mode: anthropic-adaptive
+          efforts: [high, xhigh, max]
+          defaultLevel: high
+          supportsDisplay: true
+          requiresEffort: true
+      - id: databricks-claude-haiku-5-5
+        name: Claude-Haiku-5.5
+        reasoning: true
+        contextWindow: 160000
+        maxOutputTokens: 16000
+        thinking:
+          mode: anthropic-adaptive
+          efforts: [xhigh]
+          defaultLevel: xhigh
+          supportsDisplay: true
+          requiresEffort: true
+  gen-ai-gpt:
+    baseUrl: BaseUrl
+    apiKey: Token
+    api: openai-responses
+    models:
+      - id: databricks-gpt-6-1-sol
+        name: GPT-6.1-Sol
+        reasoning: true
+        contextWindow: 160000
+        maxOutputTokens: 16000
+        thinking:
+          mode: effort
+          efforts: [medium, xhigh]
+          defaultLevel: medium
+          requiresEffort: true
+        compat:
+          supportsReasoningEffort: true
+          supportsReasoningSummary: true
+          statefulResponses: false
+  ai-box-cache:
+    baseUrl: https://api.ai-box.vn
+    apiKey: sk-APIBox-Token
+    api: anthropic-messages
+    auth: apiKey
+    disableStrictTools: true
+    models:
+      - id: qwen3.8-flash
+        name: Qwen-3.8-Flash
+        reasoning: true
+        input: [text]
+        contextWindow: 160000
+        maxTokens: 16000
+  aibox-non-cache:
+    baseUrl: https://api.ai-box.vn/v1
+    api: openai-completions
+    apiKey: sk-APIBox-Token
+    models:
+      - id: ds/deepseek-flash
+        name: DeepSeek-V4-Flash
+        contextWindow: 160000
+        maxOutputTokens: 16000
+        vision: false
+      - id: ZHIPU/GLM-5.3
+        name: GLM-5.3
+        contextWindow: 160000
+        maxOutputTokens: 16000
+        vision: false

@@ -1,0 +1,22 @@
+{
+  "hosts": {
+    "lab147": {
+      "host": "172.29.160.147",
+      "username": "kietpham",
+      "port": 22,
+      "description": "LabPC 147"
+    },
+    "lab101": {
+      "host": "10.231.21.101",
+      "username": "kietpham",
+      "port": 22,
+      "description": "LabPC 101"
+    },
+    "lab100": {
+      "host": "10.231.21.100",
+      "username": "kietpham",
+      "port": 22,
+      "description": "LabPC 100"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "marketplaces": [
+    {
+      "name": "mattpocock",
+      "sourceType": "github",
+      "sourceUri": "mattpocock/skills",
+      "catalogPath": "/home/kietpham/.omp/plugins/cache/marketplaces/mattpocock/marketplace.json",
+      "addedAt": "2026-10-11T08:23:03.785Z",
+      "updatedAt": "2026-10-20T16:37:08.913Z"
+    }
+  ]
+}

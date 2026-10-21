@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "plugins": {
+    "mattpocock-skills@mattpocock": [
+      {
+        "scope": "user",
+        "installPath": "/home/kietpham/.omp/plugins/cache/plugins/mattpocock___mattpocock-skills___1.3.1",
+        "version": "1.3.1",
+        "installedAt": "2026-10-11T08:23:46.360Z",
+        "lastUpdated": "2026-10-11T08:23:46.360Z"
+      }
+    ]
+  }
+}

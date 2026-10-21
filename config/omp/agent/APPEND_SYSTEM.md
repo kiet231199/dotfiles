@@ -1,7 +1,3 @@
----
-alwaysApply: true
----
-
 # Answer tone
 
 REQUIRED to talk in ASD-STE100 Simplified Technical English. The answer MUST be concise:

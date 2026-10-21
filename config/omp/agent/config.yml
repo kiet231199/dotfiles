@@ -1,0 +1,158 @@
+symbolPreset: nerd
+composer:
+  shape: pi
+  recallClearedDrafts: true
+  tokenRate: false
+theme:
+  dark: dark-tokyo-night
+  light: dark-tokyo-night
+setupVersion: 2
+colorBlindMode: false
+statusLine:
+  preset: custom
+  transparent: false
+  compactThinkingLevel: true
+  sessionAccent: false
+  separator: powerline-thin
+  contextLine: annotated
+  leftSegments:
+    - pi
+    - model
+    - mode
+    - path
+    - git
+    - collab
+    - subagents
+  rightSegments:
+    - token_in
+    - token_out
+    - cache_hit
+    - context_pct
+  segmentOptions:
+    path:
+      abbreviate: true
+      maxLength: 40
+      stripWorkPrefix: true
+    git:
+      showBranch: true
+      showStaged: true
+      showUnstaged: true
+      showUntracked: true
+terminal:
+  showProgress: true
+tui:
+  textSizing: false
+  tight: false
+  vimMode: true
+  vimModeDisplay: text
+defaultThinkingLevel: auto
+hideThinkingBlock: true
+commands:
+  enableOpencodeUser: false
+  enableOpencodeProject: false
+  enableClaudeProject: false
+display:
+  cacheMissMarker: true
+  showTokenUsage: true
+  pinnedAgents: "off"
+steeringMode: all
+modelRoles:
+  plan: aibox-non-cache/ds/deepseek-flash
+  commit: aibox-non-cache/ds/deepseek-flash:auto
+  default: aibox-non-cache/ds/deepseek-flash
+  advisor: aibox-non-cache/ds/deepseek-flash:auto
+  smol: aibox-non-cache/ds/deepseek-flash:auto
+  slow: aibox-non-cache/zai-org/glm-5.3-flash:high
+  tiny: aibox-non-cache/deepseek-v4.1-flash:auto
+  memory: aibox-non-cache/ds/deepseek-flash:auto
+provider:
+  appendOnlyContext: "on"
+compaction:
+  methodOrder:
+    - handoff
+    - shake
+    - remote
+  keepRecentTokens: 16000
+  thresholdPercent: 80
+  thresholdTokens: -1
+  enabled: true
+  midTurnEnabled: true
+  handoffSaveToDisk: false
+  idleEnabled: false
+tools:
+  artifactSpillThreshold: 32
+  artifactHeadBytes: 8
+  artifactTailBytes: 8
+  artifactTailLines: 200
+read:
+  defaultLimit: 300
+  renderMarkdown: true
+task:
+  maxConcurrency: 4
+  agentIdleTtlMs: 120000
+  enableEffort: true
+  enableLsp: true
+  eager: preferred
+  batch: true
+  isolation:
+    enabled: true
+async:
+  maxJobs: 20
+providers:
+  cacheRetention: long
+startup:
+  quiet: false
+autolearn:
+  enabled: true
+  autoContinue: false
+edit:
+  mode: hashline
+bash:
+  enabled: true
+retry:
+  modelFallback: false
+error:
+  notify: "on"
+magicKeywords:
+  workflow: false
+  ultrathink: true
+  enabled: true
+  jevify: false
+computer:
+  enabled: false
+mcp:
+  renderMarkdownResults: true
+omitThinking: false
+proseOnlyThinking: true
+cycleOrder:
+  - smol
+  - default
+  - slow
+dev:
+  autoqaConsent: granted
+disabledProviders:
+  - ollama
+  - llama.cpp
+  - lm-studio
+advisor:
+  enabled: false
+browser:
+  enabled: true
+  headless: true
+  cmux: true
+ida:
+  enabled: true
+todo:
+  eager: default
+followUpMode: one-at-a-time
+doubleEscapeAction: rewind
+astGrep:
+  enabled: true
+extendedContext: false
+memory:
+  backend: mnemopi
+eval:
+  autoBackground:
+    enabled: true
+skills:
+  enableSkillCommands: true
