@@ -1,41 +1,22 @@
 #!/bin/bash
-# Disable SSL verify
+
 export GIT_SSL_NO_VERIFY=true
 
-dot=/data4/kietpham/00_dot
-config=$dot/config
+export PATH="/home/kietpham/.local/bin:$PATH"
 
-export PATH="$dot/tools/nvim-0.10.0/bin:$PATH"				# Neovim
-export PATH="$dot/tools/node-v16.17.1/bin:$PATH"			# Nodejs
-export PATH="$dot/tools/python-3.10.7/bin:$PATH"			# Python
-export PATH="$dot/tools/ctags/bin:$PATH"					# Universal Ctags
-export PATH="$dot/tools/tmux-3.3a/bin:$PATH"				# Tmux
-export PATH="$dot/tools/cmake-3.25.0/bin:$PATH"				# Cmake
-export PATH="$dot/tools/tree-2.1.0/bin:$PATH"				# Tree show
-export PATH="$dot/tools/ripgrep-13.0.0:$PATH"				# Ripgrep
-export PATH="$dot/tools/bat-v0.22.1:$PATH"					# Bat
-export PATH="$dot/tools/fd-v8.4.0:$PATH"					# Finder
-export PATH="$dot/tools/ffmpeg:$PATH"					    # Video converter
-export PATH="$dot/tools/fzf:$PATH"					    	# Fuzzy finder
-export PATH="$dot/tools/zsh-5.9/bin:$PATH"					# ZSH
-export PATH="$dot/tools:$PATH"								# Lazygit
-export PATH="$dot/tools/delta-0.14.0:$PATH"					# Delta (git diff)
-export PATH="$config/mason/bin:$PATH"
+alias 104="ssh -tA kietpham@172.29.160.147 exec zsh"
+alias 101="ssh -tA kietpham@10.231.21.101 exec zsh"
+alias 100="ssh -tA kietpham@10.231.21.100 exec zsh"
 
-# Enable color on tmux
-alias tmux="TERM=xterm-256color tmux"
+# Trick for herdr-annotate (WSL terminal only)
+alias xclip="/mnt/c/Windows/System32/clip.exe"
+alias xsel="/mnt/c/Windows/System32/clip.exe"
 
-alias l="ls"
-alias ll="ls -lah"
-alias cd3="cd ../../../"
-alias cd4="cd ../../../../"
-alias cd5="cd ../../../../../"
-alias cd6="cd ../../../../../../"
-alias cd7="cd ../../../../../../../"
-alias cd8="cd ../../../../../../../../"
-alias cd9="cd ../../../../../../../../../"
+wuser="/mnt/c/Users/a5137242/"
+lab147="kietpham@172.29.160.147"
+lab101="kietpham@10.231.21.101"
+lab100="kietpham@10.231.21.100"
 
-# Change nvim to git default editor
 if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
     alias nvim=nvr -cc split --remote-wait +'set bufhidden=wipe'
 fi
@@ -48,35 +29,4 @@ else
     export EDITOR="nvim"
 fi
 
-# Ip declaration
-lab208=kietpham@172.29.145.208
-lab13=rvc@192.168.5.13
-lab13_g2l=rvc@192.168.5.13:/tftpboot/kietpham/g2l
-lab13_v2l=rvc@192.168.5.13:/tftpboot/kietpham/v2l
-
-# Workspace declaration
-nhatthieu=/shsv/SS2/RSS3/29-nhatthieu/
-trungle=/shsv/SS2/RSS3/33-trungle/
-namcao=/shsv/SS2/RSS3/33_namcao/
-sangngo=/shsv/SS2/RSS3/34_sangngo/
-kietpham=/shsv/SS2/RSS3/36_kietpham/
-
-vlp=/shsv/RCarSW2/Prj_RZG/01_projects/65-VLPG
-mmp=/shsv/RCarSW2/Prj_RZG/01_projects/66-MMP
-
-omx_src=/data4/kietpham/01_codec/01_OMX_Src/rzg-omx-codec/omx_src
-omx_test=/data4/kietpham/01_codec/01_OMX_Src/omx_test
-
-gst=/data4/kietpham/02_gst
-yocto=/data4/kietpham/03_yocto
-
-toolchain_g2l=/data3/sdk/3.0.3_g2l/environment-setup-aarch64-poky-linux
-
-# Export some variable
-OMX_INC_DIR=${omx_src}/omx/bin/include
-OMX_LIB_DIR=${omx_src}/omx/bin/lib
-# export DESTDIR=${omx_test}/IT/IT2/build
-
-#other alias
-alias zbash=". ~/.bash_prompt"
-alias 2scp='scp -oProxyCommand="'"ssh $lab208 nc %h %p"'"'
+source ~/.bashrc_nvim

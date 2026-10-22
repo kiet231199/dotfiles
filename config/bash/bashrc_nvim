@@ -1,0 +1,9 @@
+#!/bin/bash
+export PATH="/home/kietpham/.nvim/tools/:$PATH"
+export PATH="/home/kietpham/.nvim/tools/fd-10.0.0/bin:$PATH"
+# export PATH="/home/kietpham/.nvim/tools/node-v16.17.1/bin:$PATH"
+export PATH="/home/kietpham/.nvim/tools/nvim-0.11.6/bin:$PATH"
+# export PATH="/home/kietpham/.nvim/tools/python-3.10.7/bin:$PATH"
+export PATH="/home/kietpham/.nvim/tools/ripgrep-14.0.0/bin:$PATH"
+export PATH="/home/kietpham/.nvim/tools/tmux-3.3a/bin:$PATH"
+export PATH="/home/kietpham/.nvim/config/mason/bin:$PATH"
